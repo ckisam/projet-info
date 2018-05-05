@@ -5,12 +5,9 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 import fr.sam.Bomberman;
 
-public class DesktopLauncher {
+public class DesktopLauncherOld {
 	public static void main(String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.title = "BombaZebra";
-		config.width = 960;
-		config.height = 640;
 		new LwjglApplication(new Bomberman(), config);
 	}
 }
