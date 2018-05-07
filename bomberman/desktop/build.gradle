@@ -58,8 +58,8 @@ sourceSets {
     main {
         java {
             srcDir 'src/'
-            srcDir '${rootProject.projectDir}/android/assets'
-            srcDir '${rootProject.projectDir}/core/src/Levels'
+            // srcDir '${rootProject.projectDir}/android/assets'
+            // srcDir '${rootProject.projectDir}/core/src/Levels'
         }
     }
 }
