@@ -54,6 +54,16 @@ task afterEclipseImport(description: "Post processing after project generation",
   }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDir 'src/'
+            srcDir '${rootProject.projectDir}/android/assets'
+            srcDir '${rootProject.projectDir}/core/src/Levels'
+        }
+    }
+}
+
 jar {
     manifest {
         attributes "Main-Class": project.mainClassName

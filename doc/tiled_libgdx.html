@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html><head>
+<link href="tiled_libgdx_fichiers/Global.css" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script async="" type="text/javascript" src="tiled_libgdx_fichiers/v2"></script><script src="tiled_libgdx_fichiers/pubads_impl_rendering_203.js"></script><script async="" type="text/javascript" src="tiled_libgdx_fichiers/gpt.js"></script><script src="tiled_libgdx_fichiers/osd.js"></script><script src="tiled_libgdx_fichiers/ca-pub-5156240514307514.js"></script><script async="" src="tiled_libgdx_fichiers/analytics.js"></script><script src="tiled_libgdx_fichiers/cbgapi.loaded_0" async=""></script><script src="tiled_libgdx_fichiers/ca-pub-5156240514307514.js"></script><script type="text/javascript" async="" src="tiled_libgdx_fichiers/plusone.js" gapi_processed="true"></script><script id="twitter-wjs" src="tiled_libgdx_fichiers/widgets.js"></script><script type="text/javascript" src="tiled_libgdx_fichiers/en-us.axd"></script>
+<script type="text/javascript" src="tiled_libgdx_fichiers/01-jquery.js"></script>
+<script type="text/javascript" src="tiled_libgdx_fichiers/blog.js"></script>
+<script type="text/javascript" src="tiled_libgdx_fichiers/02-jquery.js" defer="defer" async="async"></script>
+<script type="text/javascript" src="tiled_libgdx_fichiers/04-jquery-jtemplates.js" defer="defer" async="async"></script>
+<script type="text/javascript" src="tiled_libgdx_fichiers/05-json2.js" defer="defer" async="async"></script><link rel="apple-touch-icon" sizes="57x57" href="tiled_libgdx_fichiers/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="http://www.gamefromscratch.com/themes/GFS/icons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="http://www.gamefromscratch.com/themes/GFS/icons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="http://www.gamefromscratch.com/themes/GFS/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="http://www.gamefromscratch.com/themes/GFS/icons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="http://www.gamefromscratch.com/themes/GFS/icons/favicon-16x16.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="tiled_libgdx_fichiers/style.css" type="text/css"><link rel="Stylesheet" href="tiled_libgdx_fichiers/jquery.css"><link rel="manifest" href="http://www.gamefromscratch.com/manifest.json">
+	<script src="tiled_libgdx_fichiers/jquery.js"></script>
+    <script src="tiled_libgdx_fichiers/jquery_002.js"></script>
+
+<meta name="keywords" content="LibGDX,Tutorial,Java,2D,Tutorial, Gamedev, Review, Game Development, Godot, Unity, Unreal, Blender">
+<meta name="author" content="Copyright GameFromScratch.com">
+<link rel="last" title="ImpactJs Is Now Open Source" href="http://www.gamefromscratch.com/post/2018/05/03/ImpactJs-Is-Now-Open-Source.aspx">
+<link rel="first" title="My Blender Keyboard Shortcuts" href="http://www.gamefromscratch.com/post/2011/04/01/My-Blender-Keyboard-Shortcuts.aspx">
+<link rel="next" title="Substance Painter release Beta 3 to Steam" href="http://www.gamefromscratch.com/post/2014/04/17/Substance-Painter-release-Beta-3-to-Steam.aspx">
+<link rel="prev" title="A quick look at Tiled.  An open source 2D level editor" href="http://www.gamefromscratch.com/post/2014/04/15/A-quick-look-at-Tiled-An-open-source-2D-level-editor.aspx">
+<link type="application/rss+xml" rel="alternate" title="LibGDX Tutorial 11: Tiled Maps Part 1: Simple Orthogonal Maps (RSS)" href="http://www.gamefromscratch.com/post/feed/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx?format=ATOM">
+<link type="application/rss+xml" rel="alternate" title="LibGDX Tutorial 11: Tiled Maps Part 1: Simple Orthogonal Maps (ATOM)" href="http://www.gamefromscratch.com/post/feed/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx?format=ATOM">
+<link rel="contents" title="Archive" href="http://www.gamefromscratch.com/archive.aspx">
+<link rel="start" title="Game From Scratch" href="http://www.gamefromscratch.com/">
+<link type="application/rdf+xml" rel="meta" title="SIOC" href="http://www.gamefromscratch.com/sioc.axd">
+<link type="application/apml+xml" rel="meta" title="APML" href="http://www.gamefromscratch.com/apml.axd">
+<link type="application/rdf+xml" rel="meta" title="FOAF" href="http://www.gamefromscratch.com/foaf.axd">
+<link type="application/rss+xml" rel="alternate" title="Game From Scratch (RSS)" href="http://www.gamefromscratch.com/syndication.axd">
+<link type="application/atom+xml" rel="alternate" title="Game From Scratch (ATOM)" href="http://www.gamefromscratch.com/syndication.axd?format=atom">
+<link type="application/rsd+xml" rel="edituri" title="RSD" href="http://www.gamefromscratch.com/rsd.axd"><meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link type="application/opensearchdescription+xml" rel="search" title="Game From Scratch" href="http://www.gamefromscratch.com/opensearch.axd"><title>
+	LibGDX Tutorial 11: Tiled Maps Part 1: Simple Orthogonal Maps
+</title><link rel="preload" href="tiled_libgdx_fichiers/integrator_002.js" as="script"><script type="text/javascript" src="tiled_libgdx_fichiers/integrator_002.js"></script><link rel="preload" href="tiled_libgdx_fichiers/integrator.js" as="script"><script type="text/javascript" src="tiled_libgdx_fichiers/integrator.js"></script><script type="text/javascript" async="" src="tiled_libgdx_fichiers/embed.js"></script><link rel="prefetch" as="style" href="tiled_libgdx_fichiers/a_data/lounge.css"><link rel="prefetch" as="script" href="tiled_libgdx_fichiers/a_data/common.js"><link rel="prefetch" as="script" href="tiled_libgdx_fichiers/a_data/lounge.js"><link rel="prefetch" as="script" href="tiled_libgdx_fichiers/a_data/config.js"><script type="text/javascript" async="" src="tiled_libgdx_fichiers/bsa.js"></script><script type="text/javascript" async="" src="tiled_libgdx_fichiers/a.js"></script><script type="text/javascript" charset="utf-8" async="" src="tiled_libgdx_fichiers/button.js"></script><script type="text/javascript" id="_bsap_js_2017e991d399c2aef903ae30ebd81db1" src="tiled_libgdx_fichiers/s_2017e991d399c2aef903ae30ebd81db1.js" async="async"></script><script type="text/javascript" src="tiled_libgdx_fichiers/pro.js" id="_bsap_premium_pro"></script><script type="text/javascript" id="_bsaPRO_js" src="tiled_libgdx_fichiers/a" async="async"></script><link rel="preload" href="tiled_libgdx_fichiers/pubads_impl_203.js" as="script"><script src="tiled_libgdx_fichiers/pubads_impl_203.js" async=""></script><script src="tiled_libgdx_fichiers/ids.js"></script><link id="avast_os_ext_custom_font" href="tiled_libgdx_fichiers/css_003.css" rel="stylesheet" type="text/css"><link href="tiled_libgdx_fichiers/css_004.css" rel="stylesheet" type="text/css"><link href="tiled_libgdx_fichiers/css_002.css" rel="stylesheet" type="text/css"><link href="tiled_libgdx_fichiers/css.css" rel="stylesheet" type="text/css"><style id="wrc-css" type="text/css">.wrcx {display:none} .r .wrcx,  .fc .wrcx, #rhsline ol .wrcx {display:inline-block !important; position:relative !important; background: url("moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/serp-none.png") right no-repeat},.wrcx {display:none} .osl .wrcx, .vresult .r, .tl .r .wrcx{ display: none;}
+.wrc0 {display:none} .r .wrc0,  .fc .wrc0, #rhsline ol .wrc0 {display:inline-block !important; position:relative !important; background: url("moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/serp-none.png") right no-repeat},.wrc0 {display:none} .osl .wrc0, .vresult .r, .tl .r .wrc0{ display: none;}
+.wrc1 {display:none} .r .wrc1,  .fc .wrc1, #rhsline ol .wrc1 {display:inline-block !important; position:relative !important; background: url("moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/serp-ok.png") right no-repeat},.wrc1 {display:none} .osl .wrc1, .vresult .r, .tl .r .wrc1{ display: none;}
+.wrc2 {display:none} .r .wrc2,  .fc .wrc2, #rhsline ol .wrc2 {display:inline-block !important; position:relative !important; background: url("moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/serp-attention.png") right no-repeat},.wrc2 {display:none} .osl .wrc2, .vresult .r, .tl .r .wrc2{ display: none;}
+.wrc3 {display:none} .r .wrc3,  .fc .wrc3, #rhsline ol .wrc3 {display:inline-block !important; position:relative !important; background: url("moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/serp-error.png") right no-repeat},.wrc3 {display:none} .osl .wrc3, .vresult .r, .tl .r .wrc3{ display: none;}
+#wrcHoverDiv .aos-tooltip-logo-img { background-image: url(moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/logo-white.png); }
+#wrcHoverDiv .aos-tooltip-attention .aos-tooltip-logo-img { background-image: url(moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/logo-dark.png); }</style></head>
+
+<body><div id="wrcHoverDiv"><div id="wrccontainer" class="aos-tooltip"><div class="aos-tooltip-arrow"></div><a class="aos-tooltip-logo"><span class="aos-tooltip-logo-img"></span><span class="aos-tooltip-logo-text">Online Security</span></a><div id="wrcratingicon" class="aos-tooltip-icon" style="background-image: url(&quot;moz-extension://c6ccaca4-a712-4d14-8025-82d836c69e20/common/ui/icons/unknown.png&quot;);"></div><div id="wrcratingtext" class="aos-tooltip-text">Ce site n'a pas été évalué</div></div></div>
+    <form name="aspnetForm" method="post" action="/post/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx" id="aspnetForm" class="body" style="visibility: visible; opacity: 1;">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIwODUxOTQ5OTMPZBYCZg9kFgICAw9kFgQCAQ9kFgQCAw8WAh4HVmlzaWJsZWcWBAIBDw8WBh4LTmF2aWdhdGVVcmwFSi9wb3N0LzIwMTQvMDQvMTUvQS1xdWljay1sb29rLWF0LVRpbGVkLUFuLW9wZW4tc291cmNlLTJELWxldmVsLWVkaXRvci5hc3B4HgRUZXh0BT8mbHQ7Jmx0OyBBIHF1aWNrIGxvb2sgYXQgVGlsZWQuICBBbiBvcGVuIHNvdXJjZSAyRCBsZXZlbCBlZGl0b3IeB1Rvb2xUaXAFC1Byw6ljw6lkZW50ZGQCAw8PFgYfAQU/L3Bvc3QvMjAxNC8wNC8xNy9TdWJzdGFuY2UtUGFpbnRlci1yZWxlYXNlLUJldGEtMy10by1TdGVhbS5hc3B4HwIFMlN1YnN0YW5jZSBQYWludGVyIHJlbGVhc2UgQmV0YSAzIHRvIFN0ZWFtICZndDsmZ3Q7HwMFB1N1aXZhbnRkZAILDw8WAh8AaGQWAgICD2QWBAIJDw8WAh8AaGRkAg0PFgIeBVZhbHVlBSQwYmEwZmYzMy1lMjU0LTRhYjQtYmE3My01MmNkMjEyM2QzMjVkAgIPZBYCAggPDxYCHwBoZGRku7+pD+kT9X3vQa7Y/Q7U9j03YtQ=" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+
+<script src="tiled_libgdx_fichiers/res--2055460528.axd" type="text/javascript"></script>
+
+
+        <div id="header">
+            <div id="mobile-header">
+                <a id="responsive-menu-button" href="#sidr-main">
+                    <img src="tiled_libgdx_fichiers/mobile-menu-icon.png" alt="Mobile Menu Icon">
+                </a>
+            </div>
+            <img style="float:right; padding-top:3px;padding-right:3px;" src="tiled_libgdx_fichiers/apple-icon-57x57.png" alt="GFS Logo">
+
+            <p><a href="http://www.gamefromscratch.com/">GameFromScratch.com</a></p>
+            <span>GameDev made easy...ish. Game programming starts here.</span>
+        </div>
+        <div style="clear:both"></div>
+
+        <div id="navigation">
+            <nav class="nav">
+                <ul>
+                    <li><a href="http://www.gamefromscratch.com/page/Getting-Started.aspx">Getting Started</a></li>
+                    <li><a href="http://www.gamefromscratch.com/page/Game-Development-Tutorial-Series.aspx">Tutorials</a></li>
+                    <li><a href="http://www.gamefromscratch.com/page/Game-Engine-guides.aspx">Game Engines</a></li>
+                    <!-- <li><a href="/videoplayer.aspx">Videos</a></li> -->
+                 <!--   <li><a href="/post/2015/04/14/Supporting-GameFromScratchcom-on-Patreon.aspx">Support GameFromScratch</a></li>  -->
+                    <li><a href="http://www.gamefromscratch.com/archive.aspx">Archive</a></li>
+                   <!-- <li><a href="http://www.gamefromscratch.com/syndication.axd" class="feed">
+                    <img src="/pics/rssButton.png" width="12" height="12" alt="Feed" />Souscrire</a></li>
+					-->
+                    <li><a href="http://www.gamefromscratch.com/contact.aspx">Contact Us</a></li>
+                    <li><a href="http://www.gamefromscratch.com/search.aspx">Search</a></li>
+					
+					
+                </ul>
+            </nav>
+				
+        </div>
+ 
+
+        <div style="clear:both;text-align:center;padding-top:3px">
+		<a href="https://www.youtube.com/subscription_center?add_user=GameFromScratch" wrc_done="true"><img style="padding-right:10px" src="tiled_libgdx_fichiers/YouTubeSubscribe.png" alt="Subscribe to GameFromScratch on YouTube"></a><span class="wrc1 wrc_icon wrc_injected"></span>
+		<a href="https://www.patreon.com/gamefromscratch" wrc_done="true"><img style="padding-right:10px" src="tiled_libgdx_fichiers/PatreonSmall.png" alt="Support GameFromScratch on Patreon"></a><span class="wrc1 wrc_icon wrc_injected"></span>
+<iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 162px; height: 20px;" title="Twitter Follow Button" src="tiled_libgdx_fichiers/follow_button.html" data-screen-name="gamefromscratch" frameborder="0"></iframe><span class="wrc1 wrc_icon wrc_injected"></span> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+<hr>
+        <div id="contentAndSidebarContainer" style="visibility: visible; opacity: 1;">
+            <div id="contentContainer">
+                
+                
+  
+
+  
+
+<div style="margin-left:auto;margin-right:auto;text-align:center;width:100%;height:90px;text-align:center">
+<script async="" src="tiled_libgdx_fichiers/adsbygoogle.js"></script>
+<!-- Autosized ad -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-5156240514307514" data-ad-slot="6076193426" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:845px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:845px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:845px;height:90px;" frameborder="0" width="845" height="90"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><br>
+  
+    <div id="postnavigation">
+      <a id="ctl00_cphBody_hlPrev" title="Précédent" href="http://www.gamefromscratch.com/post/2014/04/15/A-quick-look-at-Tiled-An-open-source-2D-level-editor.aspx">&lt;&lt; A quick look at Tiled.  An open source 2D level editor</a> | 
+      <a id="ctl00_cphBody_hlNext" title="Suivant" href="http://www.gamefromscratch.com/post/2014/04/17/Substance-Painter-release-Beta-3-to-Steam.aspx">Substance Painter release Beta 3 to Steam &gt;&gt;</a>
+    </div>
+  
+
+  
+<div id="postpath"> <h1>
+	<a title="" href="http://www.gamefromscratch.com/">Accueil</a>
+	 &gt; <a class="catLinks" href="http://www.gamefromscratch.com/category/Programming.aspx">Programming</a> &gt;
+    </h1>
+</div>
+
+	
+<div class="post xfolkentry">
+
+    <div class="posttitle"><a class="posttitlelink" href="http://www.gamefromscratch.com/post/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx">LibGDX Tutorial 11: Tiled Maps Part 1: Simple Orthogonal Maps</a></div>
+
+    <div class="postcontainer">
+        <div class="info">
+            <span class="date">
+                16. avril 2014</span>
+            <div class="act">
+                <span class="comments">
+			    <a rel="nofollow" href="http://www.gamefromscratch.com/post.aspx?id=b88ac021-8cda-420c-a01a-4884c2a521cc#disqus_thread">29 Comments</a>
+			    <!--
+			    <a rel="nofollow" href="/post/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx#comment">
+                    Commentaires
+                    (0)</a>
+			    -->
+				    </span>
+                    
+                <div class="fixed">
+				
+                </div>
+            </div>
+            <div class="fixed">
+			<script async="" src="tiled_libgdx_fichiers/adsbygoogle.js"></script>
+            </div>
+        </div>
+
+    <div class="content"><div class="tutorialLinks"> 	<a class="tutorialLinkLeft" href="http://www.gamefromscratch.com/post/2014/04/15/A-quick-look-at-Tiled-An-open-source-2D-level-editor.aspx"> Previous Part</a> 	<a class="tutorialLinkCenter" href="http://www.gamefromscratch.com/page/LibGDX-Tutorial-series.aspx">Table Of Contents</a> 	<a class="tutorialLinkRight" href="http://www.gamefromscratch.com/post/2014/05/01/LibGDX-Tutorial-11-Tiled-Maps-Part-2-Adding-a-character-sprite.aspx">Next Part</a> </div>  <p>&nbsp;</p>  <p><strong>If you’ve never used Tiled </strong><a href="http://www.gamefromscratch.com/post/2014/04/15/A-quick-look-at-Tiled-An-open-source-2D-level-editor.aspx"><strong>read this first!</strong></a></p>  <p>&nbsp;</p>  <p>In
+ this tutorial part we are going to look at loading orthogonal maps in 
+LibGDX.&nbsp; Orthogonal basically means “at a right angle to” which is a
+ fancy way of saying the camera is looking straight at the scene.&nbsp; 
+Another much less fancy word for this style of game is “top down”.&nbsp;
+ Common examples include almost every single game from the 16Bit 
+generation of consoles such as Zelda or MegaMan.</p>  <p>&nbsp;</p>  <p>One of the first problems you are going to encounter is how do you create your maps?&nbsp; One very common solution is the <a href="http://www.mapeditor.org/" wrc_done="true">Tiled Map Editor</a><span class="wrc0 wrc_icon wrc_injected"></span> which fortunately I <a href="http://www.gamefromscratch.com/post/2014/04/15/A-quick-look-at-Tiled-An-open-source-2D-level-editor.aspx">just completed a tutorial on!</a>&nbsp;
+ This tutorial assumes you know how to generate a TMX file, so if you 
+haven’t be sure to go through the linked tutorial.&nbsp; Fortunately 
+LibGDX makes it very easy to work with TMX files.</p>  <p>&nbsp;</p>  <p>First things first we need to copy the TMX and any/all tilemap image files used to your assets folder, like so:</p>  <p><a href="http://www.gamefromscratch.com/image.axd?picture=image_1201.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="tiled_libgdx_fichiers/image.png" width="313" height="168" border="0"></a></p>  <p>You
+ may notice unlike earlier tutorials I am currently using 
+IntelliJ.&nbsp; With the recent switch to Gradle it is much easier to 
+get up and running in IntelliJ and I massively prefer it to 
+Eclipse.&nbsp; That said, everything I say is equally valid in Eclipse 
+or IntelliJ and when there are differences, I will point them out.&nbsp;
+ If you want to get started with IntelliJ <a href="http://www.gamefromscratch.com/post/2013/12/01/Using-LibGDX-with-IntelliJ-with-Gradle.aspx">read here</a>.</p>  <p>&nbsp;</p>  <p>Alright, back on topic…</p>  <p>&nbsp;</p>  <p>Now that you have the map and tilesets in your project, let’s jump right in with the code:</p>  <p>&nbsp;</p>  <pre class="code"><span style="color: #7f0055">package </span>com.gamefromscratch;
+
+<span style="color: #7f0055">import </span>com.badlogic.gdx.ApplicationAdapter;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.Gdx;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.Input;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.InputProcessor;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.graphics.GL20;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.graphics.OrthographicCamera;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.graphics.Texture;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.maps.tiled.TiledMap;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.maps.tiled.TmxMapLoader;
+<span style="color: #7f0055">import </span>com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+
+<span style="color: #7f0055">public class </span>TiledTest <span style="color: #7f0055">extends </span>ApplicationAdapter <span style="color: #7f0055">implements </span>InputProcessor {
+    Texture <span style="color: #0000c0">img</span>;
+    TiledMap <span style="color: #0000c0">tiledMap</span>;
+    OrthographicCamera <span style="color: #0000c0">camera</span>;
+    TiledMapRenderer <span style="color: #0000c0">tiledMapRenderer</span>;
+    
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public void </span>create () {
+        <span style="color: #7f0055">float </span>w = Gdx.<span style="color: #0000c0">graphics</span>.getWidth();
+        <span style="color: #7f0055">float </span>h = Gdx.<span style="color: #0000c0">graphics</span>.getHeight();
+
+        <span style="color: #0000c0">camera </span>= <span style="color: #7f0055">new </span>OrthographicCamera();
+        <span style="color: #0000c0">camera</span>.setToOrtho(<span style="color: #7f0055">false</span>,w,h);
+        <span style="color: #0000c0">camera</span>.update();
+        <span style="color: #0000c0">tiledMap </span>= <span style="color: #7f0055">new </span>TmxMapLoader().load(<span style="color: #2a00ff">"MyCrappyMap.tmx"</span>);
+        <span style="color: #0000c0">tiledMapRenderer </span>= <span style="color: #7f0055">new </span>OrthogonalTiledMapRenderer(<span style="color: #0000c0">tiledMap</span>);
+        Gdx.<span style="color: #0000c0">input</span>.setInputProcessor(<span style="color: #7f0055">this</span>);
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public void </span>render () {
+        Gdx.<span style="color: #0000c0">gl</span>.glClearColor(1, 0, 0, 1);
+        Gdx.<span style="color: #0000c0">gl</span>.glBlendFunc(GL20.<span style="color: #0000c0">GL_SRC_ALPHA</span>, GL20.<span style="color: #0000c0">GL_ONE_MINUS_SRC_ALPHA</span>);
+        Gdx.<span style="color: #0000c0">gl</span>.glClear(GL20.<span style="color: #0000c0">GL_COLOR_BUFFER_BIT</span>);
+        <span style="color: #0000c0">camera</span>.update();
+        <span style="color: #0000c0">tiledMapRenderer</span>.setView(<span style="color: #0000c0">camera</span>);
+        <span style="color: #0000c0">tiledMapRenderer</span>.render();
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>keyDown(<span style="color: #7f0055">int </span>keycode) {
+        <span style="color: #7f0055">return false</span>;
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>keyUp(<span style="color: #7f0055">int </span>keycode) {
+        <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">LEFT</span>)
+            <span style="color: #0000c0">camera</span>.translate(-32,0);
+        <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">RIGHT</span>)
+            <span style="color: #0000c0">camera</span>.translate(32,0);
+        <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">UP</span>)
+            <span style="color: #0000c0">camera</span>.translate(0,-32);
+        <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">DOWN</span>)
+            <span style="color: #0000c0">camera</span>.translate(0,32);
+        <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">NUM_1</span>)
+            <span style="color: #0000c0">tiledMap</span>.getLayers().get(0).setVisible(!<span style="color: #0000c0">tiledMap</span>.getLayers().get(0).isVisible());
+        <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">NUM_2</span>)
+            <span style="color: #0000c0">tiledMap</span>.getLayers().get(1).setVisible(!<span style="color: #0000c0">tiledMap</span>.getLayers().get(1).isVisible());
+        <span style="color: #7f0055">return false</span>;
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>keyTyped(<span style="color: #7f0055">char </span>character) {
+
+        <span style="color: #7f0055">return false</span>;
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>touchDown(<span style="color: #7f0055">int </span>screenX, <span style="color: #7f0055">int </span>screenY, <span style="color: #7f0055">int </span>pointer, <span style="color: #7f0055">int </span>button) {
+        <span style="color: #7f0055">return false</span>;
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>touchUp(<span style="color: #7f0055">int </span>screenX, <span style="color: #7f0055">int </span>screenY, <span style="color: #7f0055">int </span>pointer, <span style="color: #7f0055">int </span>button) {
+        <span style="color: #7f0055">return false</span>;
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>touchDragged(<span style="color: #7f0055">int </span>screenX, <span style="color: #7f0055">int </span>screenY, <span style="color: #7f0055">int </span>pointer) {
+        <span style="color: #7f0055">return false</span>;
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>mouseMoved(<span style="color: #7f0055">int </span>screenX, <span style="color: #7f0055">int </span>screenY) {
+        <span style="color: #7f0055">return false</span>;
+    }
+
+    <span style="color: #646464">@Override
+    </span><span style="color: #7f0055">public boolean </span>scrolled(<span style="color: #7f0055">int </span>amount) {
+        <span style="color: #7f0055">return false</span>;
+    }
+}</pre>
+
+<p>&nbsp;</p>
+
+<p>When you run the code you should see your map.&nbsp; Pressing the 
+arrow keys will scroll around the map ( and show bright red when you’ve 
+moved beyond the extents of your map ) .&nbsp; Pressing 0 or 1 will 
+toggle the visibility of each of the two layers in your map.&nbsp; ( See
+ the tutorial on Tiled if that makes no sense ).</p>
+
+<p>&nbsp;</p>
+
+<p><a href="http://www.gamefromscratch.com/image.axd?picture=image_1202.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="tiled_libgdx_fichiers/image_002.png" width="660" height="523" border="0"></a></p>
+
+<p>&nbsp;</p>
+
+<p>The impressive thing here is how little code was required to accomplish so much.&nbsp; In a nutshell it was basically just this:</p>
+
+<p>&nbsp;</p>
+
+<pre class="code"><span style="color: #0000c0">camera </span>= <span style="color: #7f0055">new </span>OrthographicCamera();
+<span style="color: #0000c0">camera</span>.setToOrtho(<span style="color: #7f0055">false</span>,w,h);
+<span style="color: #0000c0">camera</span>.update();
+<span style="color: #0000c0">tiledMap </span>= <span style="color: #7f0055">new </span>TmxMapLoader().load(<span style="color: #2a00ff">"MyCrappyMap.tmx"</span>);
+<span style="color: #0000c0">tiledMapRenderer </span>= <span style="color: #7f0055">new </span>OrthogonalTiledMapRenderer(<span style="color: #0000c0">tiledMap</span>);</pre>
+
+<p>&nbsp;</p>
+
+<p>We create an OrthographicCamera, set it to the dimensions of the 
+screen and update() it.&nbsp; Next we load our map using 
+TmxMapLoader.load() and create a OrthogonalTiledMapRenderer passing in 
+our tiled map.</p>
+
+<p>&nbsp;</p>
+
+<p>In our render method:</p>
+
+<pre class="code"><span style="color: #0000c0">camera</span>.update();
+<span style="color: #0000c0">tiledMapRenderer</span>.setView(<span style="color: #0000c0">camera</span>);
+<span style="color: #0000c0">tiledMapRenderer</span>.<span style="background: #d4d4d4">render();</span></pre>
+
+<p>Basically update the camera ( in case we moved it using arrow keys ),
+ pass it in to the TiledMapRenderer with setView() and finally render() 
+the map.&nbsp; That’s it.</p>
+
+<p>As you can see in our key handler:</p>
+
+<p>&nbsp;</p>
+
+<pre class="code"><span style="color: #646464">@Override
+</span><span style="color: #7f0055">public boolean </span>keyUp(<span style="color: #7f0055">int </span>keycode) {
+    <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">LEFT</span>)
+        <span style="color: #0000c0">camera</span>.translate(-32,0);
+    <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">RIGHT</span>)
+        <span style="color: #0000c0">camera</span>.translate(32,0);
+    <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">UP</span>)
+        <span style="color: #0000c0">camera</span>.translate(0,-32);
+    <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">DOWN</span>)
+        <span style="color: #0000c0">camera</span>.translate(0,32);
+    <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">NUM_1</span>)
+        <span style="color: #0000c0">tiledMap</span>.getLayers().get(0).setVisible(!<span style="color: #0000c0">tiledMap</span>.getLayers().get(0).isVisible());
+    <span style="color: #7f0055">if</span>(keycode == Input.Keys.<span style="color: #0000c0">NUM_2</span>)
+        <span style="color: #0000c0">tiledMap</span>.getLayers().get(1).setVisible(!<span style="color: #0000c0">tiledMap</span>.getLayers().get(1).isVisible());
+    <span style="color: #7f0055">return false</span>;
+}</pre>
+
+<p>&nbsp;</p>
+
+<p>Navigating around the map is simply a matter of moving around the 
+camera.&nbsp; We move in 32pixel chunks because those are the size of 
+our tiles.&nbsp; So basically we move the camera left/right/up/down by 
+one tile each time an arrow key is pressed.&nbsp; In the event the 0 or 1
+ key are pressed we toggle the visibility of that particular 
+layer.&nbsp; As you can see, you can access the TileMap layers using the
+ getLayers().get() function.</p>
+
+<p>&nbsp;</p>
+
+<p>In the next part we will look at adding some more complex functionality.</p>
+
+<p>&nbsp;</p>
+
+<p><a href="http://www.gamefromscratch.com/post/2014/05/01/LibGDX-Tutorial-11-Tiled-Maps-Part-2-Adding-a-character-sprite.aspx"><strong>On to part two.</strong></a></p>
+
+<div class="tutorialLinks">
+	<a class="tutorialLinkLeft" href="http://www.gamefromscratch.com/post/2014/04/15/A-quick-look-at-Tiled-An-open-source-2D-level-editor.aspx"> Previous Part</a>
+	<a class="tutorialLinkCenter" href="http://www.gamefromscratch.com/page/LibGDX-Tutorial-series.aspx">Table Of Contents</a>
+	<a class="tutorialLinkRight" href="http://www.gamefromscratch.com/post/2014/05/01/LibGDX-Tutorial-11-Tiled-Maps-Part-2-Adding-a-character-sprite.aspx">Next Part</a>
+</div>
+
+<p class="under">
+	<span class="categories"><a class="catLinks" href="http://www.gamefromscratch.com/category/Programming.aspx">Programming</a></span>
+	<span class="tags"><a class="tagLinks" href="http://www.gamefromscratch.com/?tag=/LibGDX" rel="tag">LibGDX</a>, <a class="tagLinks" href="http://www.gamefromscratch.com/?tag=/Tutorial" rel="tag">Tutorial</a>, <a class="tagLinks" href="http://www.gamefromscratch.com/?tag=/Java" rel="tag">Java</a>, <a class="tagLinks" href="http://www.gamefromscratch.com/?tag=/2D" rel="tag">2D</a></span>
+</p>
+
+
+<p>
+<!-- MatchedContent -->
+<script async="" src="tiled_libgdx_fichiers/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display: block; height: 502px;" data-ad-format="autorelaxed" data-ad-client="ca-pub-5156240514307514" data-ad-slot="1997524572" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:502px;margin:0;padding:0;position:relative;visibility:visible;width:837px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:502px;margin:0;padding:0;position:relative;visibility:visible;width:837px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:837px;height:502px;" frameborder="0" width="837" height="502"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</p>
+
+<script type="text/javascript">
+    (function () {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+
+
+
+
+<script type="text/javascript"><!--
+    google_ad_client = "ca-pub-5156240514307514";
+    /* GFS 720 Post above Comments */
+    google_ad_slot = "5626844176";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+</script>
+<script type="text/javascript" src="tiled_libgdx_fichiers/show_ads.js">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:728px;height:90px;" frameborder="0" width="728" height="90"></iframe></ins></ins>
+
+
+
+
+
+            </div>
+    </div>
+</div>
+
+  
+  
+    <!-- 
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+      <rdf:Description rdf:about="http://www.gamefromscratch.com/post/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx" dc:identifier="http://www.gamefromscratch.com/post/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx" dc:title="LibGDX Tutorial 11: Tiled Maps Part 1: Simple Orthogonal Maps" trackback:ping="http://www.gamefromscratch.com/trackback.axd?id=b88ac021-8cda-420c-a01a-4884c2a521cc" />
+    </rdf:RDF>
+    -->
+  
+  
+  
+
+  
+
+  <div id="ctl00_cphBody_disqus_box">
+    <div id="disqus_thread"><iframe id="dsq-app4989" name="dsq-app4989" allowtransparency="true" scrolling="no" tabindex="0" title="Disqus" style="width: 1px !important; min-width: 100% !important; border: medium none !important; overflow: hidden !important; height: 4856px !important;" src="tiled_libgdx_fichiers/a.html" horizontalscrolling="no" verticalscrolling="no" frameborder="0" width="100%"></iframe></div>
+    <script type="text/javascript">
+        var disqus_url = 'http://www.gamefromscratch.com/post.aspx?id=b88ac021-8cda-420c-a01a-4884c2a521cc';
+        var disqus_developer = '0';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'https://gamefromscratch.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=gamefromscratch">comments powered by Disqus.</a></noscript>
+    
+  </div>
+ 
+
+            </div>
+            <div id="sidepanel" style="visibility: visible; opacity: 1;">
+
+                <div id="widgetzone_be_WIDGET_ZONE" class="widgetzone" style="visibility: visible; opacity: 1;">
+<div class="widget buysellads" id="widgete9d59fe8-7239-4e24-897f-33334a14c33a">
+    
+    
+    <div class="content">
+        <div id="bsap_1285044" class="bsap bsap_1285044" style="display: inline-table;border: none;height: 250px;margin: 0;padding: 0;position: relative; visibility: visible; width: 300px; background-color: transparent;" data-serve="CKSICKY">
+<style type="text/css">
+div.bsap_1285044{width:100%;display:block;}div.bsap_1285044 a{width:300px;}div.bsap_1285044 a img{padding:0;}div.bsap_1285044 a em{font-style:normal;}div.bsap_1285044 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0 4px 10px 0;text-align:center;text-decoration:none;overflow:hidden;float:left;}
+div.bsap_1285044 img{border:0;clear:right;}
+div.bsap_1285044 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}
+div.bsap_1285044 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}div.bsap_1285044 a{line-height:100%;}div.bsap_1285044 a.adhere{width:300px;height:250px;line-height:2000%;}html>body div.bsap_1285044 a.adhere{width:298px;height:248px;}div.bsap_1285044 img.s{height:0;width:0;}div.bsap_1285044{line-height:9px;}div.bsap_1285044 .bsap_adhere a{height:19px !important;width:298px !important;font-size:10px;background:#f1f1f1;border:1px solid #e1e1e1;border-top:none;border-radius: 0 0 2px 2px;line-height:16px;}.bsap_backfillframe{border:0;}
+</style>
+<a href="http://srv.buysellads.com/ads/click/x/GTND42QLCWBICKJUCA7LYKQMCVBIV27JCKYILZ3JCW7DP2JMCVBD52JKC6BI62QMCK7DVK3EHJNCLSIZ" class="ad0 odd " title="AppGameKit now with AR, get this 50% deal now!" id="bsa_7619148" target="_blank" rel="nofollow">
+<img src="tiled_libgdx_fichiers/209ce0a5724689e79b7ce1c48a4834b8-1523996022.jpg" alt="" width="300" height="250"></a>
+<script type="text/javascript" id="auto_1" class="ignoreme"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+    </div>
+</div>
+
+<div class="widget categorylist" id="widgetc7e5a3ad-b397-4a8e-852f-8b99adcd7921">
+    
+    
+    <h4>
+        Category list</h4>
+    
+    <div class="content">
+        <ul id="categorylist"><li><a href="http://www.gamefromscratch.com/category/feed/Art.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for Art" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/Art.aspx" title="Catégorie: Art">Art (173)</a></li><li><a href="http://www.gamefromscratch.com/category/feed/Cool-Thing-of-the-Week.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for Cool Thing of the Week" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/Cool-Thing-of-the-Week.aspx" title="Catégorie: Cool Thing of the Week">Cool Thing of the Week (9)</a></li><li><a href="http://www.gamefromscratch.com/category/feed/Design.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for Design" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/Design.aspx" title="Catégorie: Design">Design (44)</a></li><li><a href="http://www.gamefromscratch.com/category/feed/GameDev-News.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for GameDev News" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/GameDev-News.aspx" title="Catégorie: GameDev News">GameDev News (735)</a></li><li><a href="http://www.gamefromscratch.com/category/feed/General.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for General" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/General.aspx" title="Catégorie: General">General (113)</a></li><li><a href="http://www.gamefromscratch.com/category/feed/News.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for News" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/News.aspx" title="Catégorie: News">News (223)</a></li><li><a href="http://www.gamefromscratch.com/category/feed/Programming.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for Programming" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/Programming.aspx" title="Catégorie: Programming">Programming (456)</a></li><li><a href="http://www.gamefromscratch.com/category/feed/Totally-Off-Topic.aspx" rel="nofollow"><img src="tiled_libgdx_fichiers/rssButton.png" alt="RSS feed for Totally Off Topic" class="rssButton"></a><a href="http://www.gamefromscratch.com/category/Totally-Off-Topic.aspx" title="Catégorie: Totally Off Topic">Totally Off Topic (54)</a></li></ul>
+
+
+    </div>
+</div>
+
+<div class="widget textbox" id="widget73e0630e-8d0a-49e4-b153-4471d31fcf08">
+    
+    
+    <div class="content">
+        <p>
+<script type="text/javascript">// <![CDATA[
+google_ad_client = "ca-pub-5156240514307514";
+/* 300x600 */
+google_ad_slot = "9261466571";
+google_ad_width = 300;
+google_ad_height = 600;
+// ]]></script>
+<script type="text/javascript" src="tiled_libgdx_fichiers/show_ads.js">// <![CDATA[
+
+// ]]></script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:300px;height:600px;" frameborder="0" width="300" height="600"></iframe></ins></ins>
+</p>
+    </div>
+</div>
+
+<div class="widget tagcloud" id="widgetf8bfbe61-a185-4b64-955d-f9def3e5d22c">
+    
+    
+    <h4>
+        Tag cloud</h4>
+    
+    <div class="content">
+        <ul id="ctl00_widgetContainerf8bfbe61a1854b64955df9def3e5d22c_f8bfbe61a1854b64955df9def3e5d22c_ulTags"><li><a href="http://www.gamefromscratch.com/?tag=/2D" class="medium" title="Tag: 2D">2D</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/3D" class="medium" title="Tag: 3D">3D</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Android" class="smallest" title="Tag: Android">Android</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Applications" class="small" title="Tag: Applications">Applications</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Blender" class="medium" title="Tag: Blender">Blender</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Book" class="smallest" title="Tag: Book">Book</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/C" class="small" title="Tag: C#">C#</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Cocos2D" class="smallest" title="Tag: Cocos2D">Cocos2D</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/CPP" class="small" title="Tag: CPP">CPP</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/CryEngine" class="smallest" title="Tag: CryEngine">CryEngine</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Defold" class="smallest" title="Tag: Defold">Defold</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Design" class="smallest" title="Tag: Design">Design</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Engine" class="medium" title="Tag: Engine">Engine</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/GameFromScratch" class="smallest" title="Tag: GameFromScratch">GameFromScratch</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Godot" class="smallest" title="Tag: Godot">Godot</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Haxe" class="smallest" title="Tag: Haxe">Haxe</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/HaxeFlixel" class="smallest" title="Tag: HaxeFlixel">HaxeFlixel</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/HTML" class="smallest" title="Tag: HTML">HTML</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/HTML5" class="small" title="Tag: HTML5">HTML5</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/iOS" class="smallest" title="Tag: iOS">iOS</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Java" class="small" title="Tag: Java">Java</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/JavaScript" class="small" title="Tag: JavaScript">JavaScript</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/LibGDX" class="small" title="Tag: LibGDX">LibGDX</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Lua" class="small" title="Tag: Lua">Lua</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Moai" class="smallest" title="Tag: Moai">Moai</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/MonoGame" class="smallest" title="Tag: MonoGame">MonoGame</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/News" class="smallest" title="Tag: News">News</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Node" class="smallest" title="Tag: Node">Node</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Paradox" class="smallest" title="Tag: Paradox">Paradox</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Phaser" class="smallest" title="Tag: Phaser">Phaser</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Pipeline" class="smallest" title="Tag: Pipeline">Pipeline</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/PlayN" class="smallest" title="Tag: PlayN">PlayN</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/PlayStation-Mobile" class="smallest" title="Tag: PlayStation Mobile">PlayStation Mobile</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Programming" class="smallest" title="Tag: Programming">Programming</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Project-Anarchy" class="smallest" title="Tag: Project Anarchy">Project Anarchy</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/PSSDK" class="smallest" title="Tag: PSSDK">PSSDK</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Rant" class="smallest" title="Tag: Rant">Rant</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Review" class="smallest" title="Tag: Review">Review</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/SFML" class="smallest" title="Tag: SFML">SFML</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Tips" class="small" title="Tag: Tips">Tips</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Tools" class="smallest" title="Tag: Tools">Tools</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Tutorial" class="biggest" title="Tag: Tutorial">Tutorial</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/TypeScript" class="smallest" title="Tag: TypeScript">TypeScript</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/UDK" class="smallest" title="Tag: UDK">UDK</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Unity" class="small" title="Tag: Unity">Unity</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Unreal" class="smallest" title="Tag: Unreal">Unreal</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Video" class="smallest" title="Tag: Video">Video</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/VR" class="smallest" title="Tag: VR">VR</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/Wings3D" class="smallest" title="Tag: Wings3D">Wings3D</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/XNA" class="smallest" title="Tag: XNA">XNA</a> </li><li><a href="http://www.gamefromscratch.com/?tag=/YUI" class="smallest" title="Tag: YUI">YUI</a> </li></ul>
+    </div>
+</div>
+
+<div class="widget adsense" id="widgetb134309f-9be3-4721-b652-9a391f4ba599">
+    
+    
+    <div class="content">
+        <div data-type="ad" data-publisher="lqm.gamefromscratch.site" data-zone="ron" data-format="300x250" data-tags="Java%2CMobile%2CAndroid%2CBlackberry%2CHTML5%2CHTML%205%2CiOS%2CVisual%20Studio%2CVS2010%2Cvisualstudio%2Cvs%2CWindows%20Phone%207%2CWP7%2CJavascript%2CWPF%2CSilverlight%2CWinforms%2CRIA%2CMVVM"><div style="height: 250px; width: 300px; box-sizing: border-box; border: 0px none; font-size: 0px;" id="div-gpt-ad-lqm.gamefromscratch.site/ron-1" data-google-query-id="CMjh_un17toCFcuLUQodfekMWw"><div id="google_ads_iframe_/6839/lqm.gamefromscratch.site/ron_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe style="border: 0px none; vertical-align: bottom;" src="tiled_libgdx_fichiers/container.html" id="google_ads_iframe_/6839/lqm.gamefromscratch.site/ron_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" frameborder="0" width="300" height="250"></iframe></div></div></div>
+    </div>
+</div>
+
+<div class="widget recentposts" id="widget12312acd-f361-4b74-bff2-30bf451b3aa4">
+    
+    
+    <h4>
+        RecentPosts</h4>
+    
+    <div class="content">
+        <ul class="recentPosts" id="recentPosts"><li><a href="http://www.gamefromscratch.com/post/2018/05/03/ImpactJs-Is-Now-Open-Source.aspx">ImpactJs Is Now Open Source</a></li><li><a href="http://www.gamefromscratch.com/post/2018/05/03/CryEngine-55-Preview-2-Released.aspx">CryEngine 5.5 Preview 2 Released</a></li><li><a href="http://www.gamefromscratch.com/post/2018/05/03/Introduction-To-Unitys-Shader-Graph.aspx">Introduction To Unity’s Shader Graph</a></li><li><a href="http://www.gamefromscratch.com/post/2018/05/02/AppGameKit-Learns-French-Italian-Spanish-and-German.aspx">AppGameKit Learns French, Italian, Spanish and German</a></li><li><a href="http://www.gamefromscratch.com/post/2018/05/02/Unity-20181-Released.aspx">Unity 2018.1 Released</a></li><li><a href="http://www.gamefromscratch.com/post/2018/04/30/OGRE-111-Released.aspx">OGRE 1.11 Released</a></li><li><a href="http://www.gamefromscratch.com/post/2018/04/30/ShaderForge-For-Unity-now-Free-And-Open-Source.aspx">ShaderForge For Unity now Free And Open Source</a></li><li><a href="http://www.gamefromscratch.com/post/2018/04/28/Godot-Gets-CSG-Supports.aspx">Godot Gets CSG Supports</a></li><li><a href="http://www.gamefromscratch.com/post/2018/04/26/Cocos-Creator-191-Released.aspx">Cocos Creator 1.9.1 Released</a></li><li><a href="http://www.gamefromscratch.com/post/2018/04/25/PlayCanvas-HTML5-3D-Game-Engine-Turns-10.aspx">PlayCanvas HTML5 3D Game Engine Turns 1.0</a></li><li><a href="http://www.gamefromscratch.com/post/2018/04/23/Defold-12126-Released.aspx">Defold 1.2.126 Released</a></li><li><a href="http://www.gamefromscratch.com/post/2018/04/20/Dust3D-A-New-Open-Source-3D-Modeller.aspx">Dust3D–A New Open Source 3D Modeller</a></li></ul>
+    </div>
+</div>
+
+<div class="widget monthlist" id="widgetab2b8c27-02c4-46ab-a78f-28939c2a1a09">
+    
+    
+    <h4>
+        Month List</h4>
+    
+    <div class="content">
+        <ul id="monthList">
+	<li class="year" onclick="BlogEngine.toggleMonth('year2018')">2018<ul id="year2018" class="open">
+		<li><a href="http://www.gamefromscratch.com/2018/05/default.aspx">mai</a> (5)</li><li><a href="http://www.gamefromscratch.com/2018/04/default.aspx">avril</a> (18)</li><li><a href="http://www.gamefromscratch.com/2018/03/default.aspx">mars</a> (25)</li><li><a href="http://www.gamefromscratch.com/2018/02/default.aspx">février</a> (16)</li><li><a href="http://www.gamefromscratch.com/2018/01/default.aspx">janvier</a> (19)</li>
+	</ul></li><li class="year" onclick="BlogEngine.toggleMonth('year2017')">2017<ul id="year2017">
+		<li><a href="http://www.gamefromscratch.com/2017/12/default.aspx">décembre</a> (14)</li><li><a href="http://www.gamefromscratch.com/2017/11/default.aspx">novembre</a> (15)</li><li><a href="http://www.gamefromscratch.com/2017/10/default.aspx">octobre</a> (15)</li><li><a href="http://www.gamefromscratch.com/2017/09/default.aspx">septembre</a> (20)</li><li><a href="http://www.gamefromscratch.com/2017/08/default.aspx">août</a> (12)</li><li><a href="http://www.gamefromscratch.com/2017/07/default.aspx">juillet</a> (15)</li><li><a href="http://www.gamefromscratch.com/2017/06/default.aspx">juin</a> (25)</li><li><a href="http://www.gamefromscratch.com/2017/05/default.aspx">mai</a> (19)</li><li><a href="http://www.gamefromscratch.com/2017/04/default.aspx">avril</a> (17)</li><li><a href="http://www.gamefromscratch.com/2017/03/default.aspx">mars</a> (30)</li><li><a href="http://www.gamefromscratch.com/2017/02/default.aspx">février</a> (30)</li><li><a href="http://www.gamefromscratch.com/2017/01/default.aspx">janvier</a> (24)</li>
+	</ul></li><li class="year" onclick="BlogEngine.toggleMonth('year2016')">2016<ul id="year2016">
+		<li><a href="http://www.gamefromscratch.com/2016/12/default.aspx">décembre</a> (32)</li><li><a href="http://www.gamefromscratch.com/2016/11/default.aspx">novembre</a> (41)</li><li><a href="http://www.gamefromscratch.com/2016/10/default.aspx">octobre</a> (27)</li><li><a href="http://www.gamefromscratch.com/2016/09/default.aspx">septembre</a> (33)</li><li><a href="http://www.gamefromscratch.com/2016/08/default.aspx">août</a> (32)</li><li><a href="http://www.gamefromscratch.com/2016/07/default.aspx">juillet</a> (34)</li><li><a href="http://www.gamefromscratch.com/2016/06/default.aspx">juin</a> (37)</li><li><a href="http://www.gamefromscratch.com/2016/05/default.aspx">mai</a> (48)</li><li><a href="http://www.gamefromscratch.com/2016/04/default.aspx">avril</a> (37)</li><li><a href="http://www.gamefromscratch.com/2016/03/default.aspx">mars</a> (56)</li><li><a href="http://www.gamefromscratch.com/2016/02/default.aspx">février</a> (41)</li><li><a href="http://www.gamefromscratch.com/2016/01/default.aspx">janvier</a> (55)</li>
+	</ul></li><li class="year" onclick="BlogEngine.toggleMonth('year2015')">2015<ul id="year2015">
+		<li><a href="http://www.gamefromscratch.com/2015/12/default.aspx">décembre</a> (47)</li><li><a href="http://www.gamefromscratch.com/2015/11/default.aspx">novembre</a> (48)</li><li><a href="http://www.gamefromscratch.com/2015/10/default.aspx">octobre</a> (17)</li><li><a href="http://www.gamefromscratch.com/2015/09/default.aspx">septembre</a> (13)</li><li><a href="http://www.gamefromscratch.com/2015/08/default.aspx">août</a> (15)</li><li><a href="http://www.gamefromscratch.com/2015/07/default.aspx">juillet</a> (16)</li><li><a href="http://www.gamefromscratch.com/2015/06/default.aspx">juin</a> (26)</li><li><a href="http://www.gamefromscratch.com/2015/05/default.aspx">mai</a> (17)</li><li><a href="http://www.gamefromscratch.com/2015/04/default.aspx">avril</a> (14)</li><li><a href="http://www.gamefromscratch.com/2015/03/default.aspx">mars</a> (18)</li><li><a href="http://www.gamefromscratch.com/2015/02/default.aspx">février</a> (11)</li><li><a href="http://www.gamefromscratch.com/2015/01/default.aspx">janvier</a> (10)</li>
+	</ul></li><li class="year" onclick="BlogEngine.toggleMonth('year2014')">2014<ul id="year2014">
+		<li><a href="http://www.gamefromscratch.com/2014/12/default.aspx">décembre</a> (15)</li><li><a href="http://www.gamefromscratch.com/2014/11/default.aspx">novembre</a> (20)</li><li><a href="http://www.gamefromscratch.com/2014/10/default.aspx">octobre</a> (20)</li><li><a href="http://www.gamefromscratch.com/2014/09/default.aspx">septembre</a> (17)</li><li><a href="http://www.gamefromscratch.com/2014/08/default.aspx">août</a> (8)</li><li><a href="http://www.gamefromscratch.com/2014/07/default.aspx">juillet</a> (16)</li><li><a href="http://www.gamefromscratch.com/2014/06/default.aspx">juin</a> (19)</li><li><a href="http://www.gamefromscratch.com/2014/05/default.aspx">mai</a> (14)</li><li><a href="http://www.gamefromscratch.com/2014/04/default.aspx">avril</a> (15)</li><li><a href="http://www.gamefromscratch.com/2014/03/default.aspx">mars</a> (19)</li><li><a href="http://www.gamefromscratch.com/2014/02/default.aspx">février</a> (14)</li><li><a href="http://www.gamefromscratch.com/2014/01/default.aspx">janvier</a> (15)</li>
+	</ul></li><li class="year" onclick="BlogEngine.toggleMonth('year2013')">2013<ul id="year2013">
+		<li><a href="http://www.gamefromscratch.com/2013/12/default.aspx">décembre</a> (10)</li><li><a href="http://www.gamefromscratch.com/2013/11/default.aspx">novembre</a> (9)</li><li><a href="http://www.gamefromscratch.com/2013/10/default.aspx">octobre</a> (12)</li><li><a href="http://www.gamefromscratch.com/2013/09/default.aspx">septembre</a> (21)</li><li><a href="http://www.gamefromscratch.com/2013/08/default.aspx">août</a> (17)</li><li><a href="http://www.gamefromscratch.com/2013/07/default.aspx">juillet</a> (15)</li><li><a href="http://www.gamefromscratch.com/2013/06/default.aspx">juin</a> (18)</li><li><a href="http://www.gamefromscratch.com/2013/05/default.aspx">mai</a> (13)</li><li><a href="http://www.gamefromscratch.com/2013/04/default.aspx">avril</a> (21)</li><li><a href="http://www.gamefromscratch.com/2013/03/default.aspx">mars</a> (16)</li><li><a href="http://www.gamefromscratch.com/2013/02/default.aspx">février</a> (14)</li><li><a href="http://www.gamefromscratch.com/2013/01/default.aspx">janvier</a> (15)</li>
+	</ul></li><li class="year" onclick="BlogEngine.toggleMonth('year2012')">2012<ul id="year2012">
+		<li><a href="http://www.gamefromscratch.com/2012/12/default.aspx">décembre</a> (16)</li><li><a href="http://www.gamefromscratch.com/2012/11/default.aspx">novembre</a> (21)</li><li><a href="http://www.gamefromscratch.com/2012/10/default.aspx">octobre</a> (23)</li><li><a href="http://www.gamefromscratch.com/2012/09/default.aspx">septembre</a> (24)</li><li><a href="http://www.gamefromscratch.com/2012/08/default.aspx">août</a> (24)</li><li><a href="http://www.gamefromscratch.com/2012/07/default.aspx">juillet</a> (25)</li><li><a href="http://www.gamefromscratch.com/2012/06/default.aspx">juin</a> (28)</li><li><a href="http://www.gamefromscratch.com/2012/05/default.aspx">mai</a> (35)</li><li><a href="http://www.gamefromscratch.com/2012/04/default.aspx">avril</a> (26)</li><li><a href="http://www.gamefromscratch.com/2012/03/default.aspx">mars</a> (13)</li><li><a href="http://www.gamefromscratch.com/2012/02/default.aspx">février</a> (14)</li><li><a href="http://www.gamefromscratch.com/2012/01/default.aspx">janvier</a> (13)</li>
+	</ul></li><li class="year" onclick="BlogEngine.toggleMonth('year2011')">2011<ul id="year2011">
+		<li><a href="http://www.gamefromscratch.com/2011/12/default.aspx">décembre</a> (9)</li><li><a href="http://www.gamefromscratch.com/2011/11/default.aspx">novembre</a> (16)</li><li><a href="http://www.gamefromscratch.com/2011/10/default.aspx">octobre</a> (11)</li><li><a href="http://www.gamefromscratch.com/2011/09/default.aspx">septembre</a> (7)</li><li><a href="http://www.gamefromscratch.com/2011/08/default.aspx">août</a> (8)</li><li><a href="http://www.gamefromscratch.com/2011/07/default.aspx">juillet</a> (7)</li><li><a href="http://www.gamefromscratch.com/2011/06/default.aspx">juin</a> (8)</li><li><a href="http://www.gamefromscratch.com/2011/05/default.aspx">mai</a> (16)</li><li><a href="http://www.gamefromscratch.com/2011/04/default.aspx">avril</a> (11)</li>
+	</ul></li>
+</ul>
+    </div>
+</div>
+
+<div class="widget disquscommentssummary" id="widget7bca5a6e-80c4-4e0b-981f-e5aa9393b325">
+    
+    
+    <h4>
+        Popular Comments</h4>
+    
+    <div class="content">
+        <div id="disquscombination" class="dsq-widget"><script type="text/javascript" src="tiled_libgdx_fichiers/combination_widget.js"></script> <style type="text/css" media="screen">	 #dsq-combo-widget ul,	 #dsq-combo-widget li,	 #dsq-combo-widget ol,	 #dsq-combo-widget div,	 #dsq-combo-widget p,	 #dsq-combo-widget a,	 #dsq-combo-widget cite,	 #dsq-combo-widget img {	 border: 0;	 padding: 0;	 margin: 0;	 float: none;	 text-indent: 0;	 background: none;	 }	 #dsq-combo-widget ul,	 #dsq-combo-widget li,	 #dsq-combo-widget ol {	 list-style-type: none;	 list-style-image: none;	 background: none;	 display: block;	 }	 #dsq-combo-widget #dsq-combo-content ul,	 #dsq-combo-widget #dsq-combo-content li,	 #dsq-combo-widget #dsq-combo-content ol,	 #dsq-combo-widget #dsq-combo-content div,	 #dsq-combo-widget #dsq-combo-content p,	 #dsq-combo-widget #dsq-combo-content a,	 #dsq-combo-widget #dsq-combo-content cite,	 #dsq-combo-widget #dsq-combo-content img {	 border: 0;	 padding: 0;	 margin: 0;	 float: none;	 text-indent: 0;	 background: none;	 }	 #dsq-combo-widget #dsq-combo-content ul,	 #dsq-combo-widget #dsq-combo-content li,	 #dsq-combo-widget #dsq-combo-content ol {	 list-style-type: none;	 list-style-image: none;	 background: none;	 display: block;	 }	 .dsq-clearfix:after {	 content:".";	 display: block;	 height: 0;	 clear: both;	 visibility: hidden;	 }	 /* end reset */	 #dsq-combo-widget { ;	 text-align: left;	 }	 #dsq-combo-widget #dsq-combo-tabs {	 float: left;	 }	 #dsq-combo-widget #dsq-combo-content {	 position: static;	 }	 #dsq-combo-widget #dsq-combo-content h3 {	 float: none;	 text-indent: 0;	 background: none;	 padding: 0;	 border: 0;	 margin: 0 0 10px 0;	 font-size: 16px;	 }	 #dsq-combo-widget #dsq-combo-tabs li {	 display: inline;	 float: left;	 margin-right: 2px;	 padding: 0px 5px;	 text-transform: uppercase;	 }	 #dsq-combo-widget #dsq-combo-tabs li a {	 text-decoration: none;	 font-weight: bold;	 font-size: 10px;	 }	 #dsq-combo-widget #dsq-combo-content .dsq-combo-box {	 margin: 0 0 20px;	 padding: 12px;	 clear: both;	 }	 #dsq-combo-widget #dsq-combo-content .dsq-combo-box li {	 padding-bottom: 10px;	 margin-bottom: 10px;	 overflow: hidden;	 word-wrap: break-word;	 }	 #dsq-combo-widget #dsq-combo-content .dsq-combo-avatar {	 float: left;	 height: 48px;	 width: 48px;	 margin-right: 15px;	 }	 #dsq-combo-widget #dsq-combo-content .dsq-combo-box cite {	 font-weight: bold;	 font-size: 14px;	 }	 span.dsq-widget-clout {	 background-color:#FF7300;	 color:#FFFFFF;	 padding:0pt 2px;	 }	 #dsq-combo-logo { text-align: right; }	 /* Blue */	 #dsq-combo-widget.blue #dsq-combo-tabs li.dsq-active { background: #E1F3FC; }	 #dsq-combo-widget.blue #dsq-combo-content .dsq-combo-box { background: #E1F3FC; }	 #dsq-combo-widget.blue #dsq-combo-tabs li { background: #B5E2FD; }	 #dsq-combo-widget.blue #dsq-combo-content .dsq-combo-box li { border-bottom: 1px dotted #B5E2FD; }	 /* Grey */	 #dsq-combo-widget.grey #dsq-combo-tabs li.dsq-active { background: #f0f0f0; }	 #dsq-combo-widget.grey #dsq-combo-content .dsq-combo-box { background: #f0f0f0; }	 #dsq-combo-widget.grey #dsq-combo-tabs li { background: #ccc; }	 #dsq-combo-widget.grey #dsq-combo-content .dsq-combo-box li { border-bottom: 1px dotted #ccc; }	 /* Green */	 #dsq-combo-widget.green #dsq-combo-tabs li.dsq-active { background: #f4ffea; }	 #dsq-combo-widget.green #dsq-combo-content .dsq-combo-box { background: #f4ffea; }	 #dsq-combo-widget.green #dsq-combo-tabs li { background: #d7edce; }	 #dsq-combo-widget.green #dsq-combo-content .dsq-combo-box li { border-bottom: 1px dotted #d7edce; }	 /* Red */	 #dsq-combo-widget.red #dsq-combo-tabs li.dsq-active { background: #fad8d8; }	 #dsq-combo-widget.red #dsq-combo-content .dsq-combo-box { background: #fad8d8; }	 #dsq-combo-widget.red #dsq-combo-tabs li { background: #fdb5b5; }	 #dsq-combo-widget.red #dsq-combo-content .dsq-combo-box li { border-bottom: 1px dotted #fdb5b5; }	 /* Orange */	 #dsq-combo-widget.orange #dsq-combo-tabs li.dsq-active { background: #fae6d8; }	 #dsq-combo-widget.orange #dsq-combo-content .dsq-combo-box { background: #fae6d8; }	 #dsq-combo-widget.orange #dsq-combo-tabs li { background: #fddfb5; }	 #dsq-combo-widget.orange #dsq-combo-content .dsq-combo-box li { border-bottom: 1px dotted #fddfb5; }	 </style>	 <div id="dsq-combo-widget" class="grey">	 <ul id="dsq-combo-tabs">	 <li id="dsq-combo-tab-people"><a href="#" onclick="dsqComboTab('people'); return false">People</a></li>	 <li id="dsq-combo-tab-recent"><a href="#" onclick="dsqComboTab('recent'); return false">Recent</a></li>	 <li id="dsq-combo-tab-popular" class="dsq-active"><a href="#" onclick="dsqComboTab('popular'); return false">Popular</a></li>	 </ul>	 <div id="dsq-combo-content">	 <div id="dsq-combo-people" class="dsq-combo-box" style="display:none">	 <h3>Top Commenters</h3>	 <ul>	 <li class="dsq-clearfix">	 <a href="https://disqus.com/by/gamefromscratch/" wrc_done="true">	 <img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/noavatar92.png">	 </a><span class="wrc1 wrc_icon wrc_injected"></span>	 <cite><a href="https://disqus.com/by/gamefromscratch/" wrc_done="true">gamefromscratch</a><span class="wrc1 wrc_icon wrc_injected"></span></cite>	 <div><span class="dsq-widget-clout" title="Clout: Reputation on Disqus"></span>&nbsp;·&nbsp;688 posts</div>	 </li>	 <li class="dsq-clearfix">	 <a href="https://disqus.com/by/eXpl0it3r/" wrc_done="true">	 <img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/avatar92.jpg">	 </a><span class="wrc1 wrc_icon wrc_injected"></span>	 <cite><a href="https://disqus.com/by/eXpl0it3r/" wrc_done="true">Lukas Dürrenberger</a><span class="wrc1 wrc_icon wrc_injected"></span></cite>	 <div><span class="dsq-widget-clout" title="Clout: Reputation on Disqus"></span>&nbsp;·&nbsp;17 posts</div>	 </li>	 <li class="dsq-clearfix">	 <a href="https://disqus.com/by/disqus_whBvfVE82R/" wrc_done="true">	 <img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/noavatar92.png">	 </a><span class="wrc1 wrc_icon wrc_injected"></span>	 <cite><a href="https://disqus.com/by/disqus_whBvfVE82R/" wrc_done="true">Babar</a><span class="wrc1 wrc_icon wrc_injected"></span></cite>	 <div><span class="dsq-widget-clout" title="Clout: Reputation on Disqus"></span>&nbsp;·&nbsp;17 posts</div>	 </li>	 <li class="dsq-clearfix">	 <a href="https://disqus.com/by/disqus_h3lE3suKKl/" wrc_done="true">	 <img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/avatar92_004.jpg">	 </a><span class="wrc1 wrc_icon wrc_injected"></span>	 <cite><a href="https://disqus.com/by/disqus_h3lE3suKKl/" wrc_done="true">Romualdo</a><span class="wrc1 wrc_icon wrc_injected"></span></cite>	 <div><span class="dsq-widget-clout" title="Clout: Reputation on Disqus"></span>&nbsp;·&nbsp;13 posts</div>	 </li>	 </ul>	 <div id="dsq-combo-logo"><a href="https://disqus.com/" wrc_done="true"><img src="tiled_libgdx_fichiers/widget-logo.png"></a><span class="wrc1 wrc_icon wrc_injected"></span></div>	 </div>	 <div id="dsq-combo-recent" class="dsq-combo-box" style="display:none">	 <h3>Recent Comments</h3>	 <ul>	 <li class="dsq-clearfix">	 <a href="https://disqus.com/by/Quast/" wrc_done="true"><img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/avatar92_002.jpg"></a><span class="wrc1 wrc_icon wrc_injected"></span>	 <a class="dsq-widget-user" href="https://disqus.com/by/Quast/" wrc_done="true">Quast</a><span class="wrc1 wrc_icon wrc_injected"></span>	 <span class="dsq-widget-comment"><p>Great tutorial. Post more please.<br>Thank you.</p></span>	 <p class="dsq-widget-meta"><a href="http://www.gamefromscratch.com/post.aspx?id=c4032328-12df-4744-ab82-a754c7d3c7ab">Introduction To Unity’s Shader Graph</a>&nbsp;·&nbsp;<a href="http://www.gamefromscratch.com/post.aspx?id=c4032328-12df-4744-ab82-a754c7d3c7ab#comment-3885258803">1 day ago</a></p>	 </li>	 <li class="dsq-clearfix">	 <img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/noavatar92.png">	 Andy	 <span class="dsq-widget-comment"><p>Something
+ I've been having trouble with is getting click events to properly 
+register for instantiated scenes within my main scene. I have a simple 
+scene with a sprite and an Area2D (Let's call this...</p></span>	 <p class="dsq-widget-meta"><a href="http://www.gamefromscratch.com/page.aspx?id=01381001-6956-46eb-9717-34f61d99f474">Godot 3 Tutorial–Keyboard, Mouse and Joystick Input</a>&nbsp;·&nbsp;<a href="http://www.gamefromscratch.com/page.aspx?id=01381001-6956-46eb-9717-34f61d99f474#comment-3882467732">3 days ago</a></p>	 </li>	 <li class="dsq-clearfix">	 <a href="https://disqus.com/by/ViRiX_Dreamcore/" wrc_done="true"><img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/avatar92_003.jpg"></a><span class="wrc1 wrc_icon wrc_injected"></span>	 <a class="dsq-widget-user" href="https://disqus.com/by/ViRiX_Dreamcore/" wrc_done="true">ViRiX_Dreamcore</a><span class="wrc1 wrc_icon wrc_injected"></span>	 <span class="dsq-widget-comment"><p>I'm using SourceTree to clone it and it says it's unable to access the repository. Is it still there?</p></span>	 <p class="dsq-widget-meta"><a href="http://www.gamefromscratch.com/post.aspx?id=3e7c8dae-cd44-4891-837a-7e21b6c4c8bb">Great Collection of Blender Cycles Materials (And How To Use It)</a>&nbsp;·&nbsp;<a href="http://www.gamefromscratch.com/post.aspx?id=3e7c8dae-cd44-4891-837a-7e21b6c4c8bb#comment-3881998297">3 days ago</a></p>	 </li>	 <li class="dsq-clearfix">	 <a href="https://disqus.com/by/blackpointfarkaskornel/" wrc_done="true"><img class="dsq-combo-avatar" src="tiled_libgdx_fichiers/noavatar92.png"></a><span class="wrc1 wrc_icon wrc_injected"></span>	 <a class="dsq-widget-user" href="https://disqus.com/by/blackpointfarkaskornel/" wrc_done="true">blackpoint //Farkas Kornel//</a><span class="wrc1 wrc_icon wrc_injected"></span>	 <span class="dsq-widget-comment"><p>Can somebody please help me? <a href="https://uploads.disquscdn.com/images/a7a9f4d5129c7e8512c3cd04095027192a77d698c9e7d954a26a0068edbf5071.png" rel="nofollow noopener" title="https://uploads.disquscdn.com/images/a7a9f4d5129c7e8512c3cd04095027192a77d698c9e7d954a26a0068edbf5071.png" wrc_done="true">https://uploads.disquscdn.c...</a><span class="wrc1 wrc_icon wrc_injected"></span></p></span>	 <p class="dsq-widget-meta"><a href="http://www.gamefromscratch.com/post.aspx?id=0d2d308f-4a57-4545-95d3-f8853b5e58d4">Installing XNA Tools Like XACT without Visual Studio 2010</a>&nbsp;·&nbsp;<a href="http://www.gamefromscratch.com/post.aspx?id=0d2d308f-4a57-4545-95d3-f8853b5e58d4#comment-3874328217">1 week ago</a></p>	 </li>	 </ul>	 <div id="dsq-combo-logo"><a href="https://disqus.com/" wrc_done="true"><img src="tiled_libgdx_fichiers/widget-logo.png"></a><span class="wrc1 wrc_icon wrc_injected"></span></div>	 </div>	 <div id="dsq-combo-popular" class="dsq-combo-box">	 <h3>Most Discussed</h3>	 <ul>	 <li class="dsq-clearfix">	 <a class="dsq-widget-thread" href="http://www.gamefromscratch.com/page.aspx?id=01381001-6956-46eb-9717-34f61d99f474">Godot 3 Tutorial–Keyboard, Mouse and Joystick Input</a>	 <p class="dsq-widget-meta"> comment · 3 days ago</p>	 </li>	 <li class="dsq-clearfix">	 <a class="dsq-widget-thread" href="http://www.gamefromscratch.com/post.aspx?id=2a39c9a3-ee22-467e-bff5-245fb87498f8">Blender Game Engine Removed From Blender 2.8</a>	 <p class="dsq-widget-meta"> comment · 1 week ago</p>	 </li>	 <li class="dsq-clearfix">	 <a class="dsq-widget-thread" href="http://www.gamefromscratch.com/post.aspx?id=b08f4e5a-42fe-4e19-8086-b69f6c8e85d9">Dust3D–A New Open Source 3D Modeller</a>	 <p class="dsq-widget-meta"> comment · 2 weeks ago</p>	 </li>	 <li class="dsq-clearfix">	 <a class="dsq-widget-thread" href="http://www.gamefromscratch.com/post.aspx?id=0d779a35-b2d6-4071-b968-5d7c908a3b73">Phaser 3.4.0 Released</a>	 <p class="dsq-widget-meta"> comment · 3 weeks ago</p>	 </li>	 </ul>	 <div id="dsq-combo-logo"><a href="https://disqus.com/" wrc_done="true"><img src="tiled_libgdx_fichiers/widget-logo.png"></a><span class="wrc1 wrc_icon wrc_injected"></span></div>	 </div>	 </div>	 </div></div>
+    </div>
+</div>
+
+<div class="widget textbox" id="widget8180eea3-ac15-4ebc-872b-ff9c62babb83" style="visibility: visible; opacity: 1;">
+    
+    
+    <div class="content" style="visibility: visible; opacity: 1;">
+        <script type="text/javascript" language="javascript" src="tiled_libgdx_fichiers/getads.js"></script>
+<script type="text/javascript" language="javascript">// <![CDATA[
+aax_getad_mpb({
+  "slot_uuid":"61489b6f-9c6e-4bfa-b759-68a60d1725d9"
+});
+// ]]></script><script src="tiled_libgdx_fichiers/getad"></script><script type="text/javascript" src="tiled_libgdx_fichiers/fpi.js"></script><iframe id="sovrn_ad_unit_335493_async" margin="0" padding="0" scrolling="no" src="tiled_libgdx_fichiers/a.html" data-zid="335493" class="sovrn_ad_unit" style="margin: 0px; padding: 0px; border: 0px none; width: 300px; height: 600px; overflow: hidden;" frameborder="0" width="300" height="600"></iframe>
+    </div>
+</div>
+</div>
+			
+            </div>
+        </div>
+        <div style="clear:both"></div>
+
+ 
+	    <div id="footer">
+	    <div data-type="ad" data-publisher="lqm.gamefromscratch.site" data-zone="ron" data-format="728x90" data-tags="Java%2CMobile%2CAndroid%2CBlackberry%2CHTML5%2CHTML%205%2CiOS%2CVisual%20Studio%2CVS2010%2Cvisualstudio%2Cvs%2CWindows%20Phone%207%2CWP7%2CJavascript%2CWPF%2CSilverlight%2CWinforms%2CRIA%2CMVVM"></div>
+			    <br>
+			    All rights reserved.  Copyright 2018 GameFromScratch.com.
+			    <br>
+	    </div>
+
+    
+<div>
+
+	<input name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="AD7AD114" type="hidden">
+</div>
+
+<script type="text/javascript"> 
+//<![CDATA[ 
+(function() { var links = document.getElementsByTagName('a'); var query = '?'; for(var i = 0; i < links.length; i++) { if(links[i].href.indexOf('#disqus_thread') >= 0) { query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&'; }}document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/gamefromscratch/get_num_replies.js' + query + '"></' + 'script>'); })(); 
+//]]> 
+</script><script charset="utf-8" type="text/javascript" src="tiled_libgdx_fichiers/get_num_replies.js"></script> 
+
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();//]]>
+</script>
+</form><iframe style="display: none;"></iframe>
+
+
+
+
+    <!--- Sidr menu script --->
+
+            <script>
+                $('#responsive-menu-button').sidr({
+                    name: 'sidr-main',
+                    source: '#navigation',
+                    side: 'right'
+                });
+        </script><div id="sidr-main" class="sidr right"><div class="sidr-inner">
+            <nav class="sidr-class-nav">
+                <ul>
+                    <li><a href="http://www.gamefromscratch.com/page/Getting-Started.aspx">Getting Started</a></li>
+                    <li><a href="http://www.gamefromscratch.com/page/Game-Development-Tutorial-Series.aspx">Tutorials</a></li>
+                    <li><a href="http://www.gamefromscratch.com/page/Game-Engine-guides.aspx">Game Engines</a></li>
+                    <!-- <li><a href="/videoplayer.aspx">Videos</a></li> -->
+                 <!--   <li><a href="/post/2015/04/14/Supporting-GameFromScratchcom-on-Patreon.aspx">Support GameFromScratch</a></li>  -->
+                    <li><a href="http://www.gamefromscratch.com/archive.aspx">Archive</a></li>
+                   <!-- <li><a href="http://www.gamefromscratch.com/syndication.axd" class="feed">
+                    <img src="/pics/rssButton.png" width="12" height="12" alt="Feed" />Souscrire</a></li>
+					-->
+                    <li><a href="http://www.gamefromscratch.com/contact.aspx">Contact Us</a></li>
+                    <li><a href="http://www.gamefromscratch.com/search.aspx">Search</a></li>
+					
+					
+                </ul>
+            </nav>
+				
+        </div></div>
+    <!--- End Sidr --->
+
+
+    <!--- StatCounter Code Start --->
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+        var sc_project = 7391351;
+        var sc_invisible = 1;
+        var sc_security = "bb57509d";
+        var scJsHost = (("https:" == document.location.protocol) ?
+        "https://secure." : "http://www.");
+        document.write("<sc" + "ript type='text/javascript' src='" +
+        scJsHost +
+        "statcounter.com/counter/counter.js'></" + "script>");
+    </script><script type="text/javascript" src="tiled_libgdx_fichiers/counter.js"></script>
+
+    <noscript><div class="statcounter"><a title="create counter"
+    href="http://statcounter.com/free-hit-counter/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/7391351/0/bb57509d/1/"
+    alt="create counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    <!--- Google Analytics code --->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-22585492-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!--- End Google Anayltics code --->
+
+    <!-- BuySellAds Ad Code -->
+    <script type="text/javascript">
+        (function () {
+            var bsa = document.createElement('script');
+            bsa.type = 'text/javascript';
+            bsa.async = true;
+            bsa.src = '//s3.buysellads.com/ac/bsa.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bsa);
+        })();
+    </script>
+    <!-- End BuySellAds Ad Code -->
+
+            <!--- Developmedia code --->
+    <script type="text/javascript">
+        function _dmBootstrap(file) {
+            var _dma = document.createElement('script');
+            _dma.type = 'text/javascript';
+            _dma.async = true;
+            _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+        }
+        function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); }
+        (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
+    </script>
+    <!--- End Developmedia --->
+
+    <!--- YouTube fitting script follows --->
+	<script>
+	    $(document).ready(function () {
+	        if (typeof YOUTUBE_VIDEO_MARGIN == 'undefined') {
+	            YOUTUBE_VIDEO_MARGIN = 5;
+	        }
+	        $('iframe').each(function (index, item) {
+	            if ($(item).attr('width') == 728 && $(item).attr('height') == 90) {
+	                // It's a google ad, causing issues
+	            }
+	            else {
+				    if( $(item).attr('src') !== undefined) {
+						if ($(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
+							//alert("Video");
+							var w = $(item).attr('width');
+							var h = $(item).attr('height');
+							var ar = h / w * 100;
+							ar = ar.toFixed(2);
+							//Style iframe    
+							$(item).css('position', 'absolute');
+							$(item).css('top', '0');
+							$(item).css('left', '0');
+							$(item).css('width', '100%');
+							$(item).css('height', '100%');
+							$(item).css('max-width', w + 'px');
+							$(item).css('max-height', h + 'px');
+							$(item).wrap('<div style="max-width:' + w + 'px;margin:0 auto; padding:' + YOUTUBE_VIDEO_MARGIN + 'px;" />');
+							$(item).wrap('<div style="position: relative;padding-bottom: ' + ar + '%; height: 0; overflow: hidden;" />');
+						}
+					}
+	            }
+	        });
+	    });
+	</script>
+
+    <!--- YouTube fitting script ends --->
+	
+	<!-- Screw Disqus... -->
+	<script>
+	(function($){
+    setInterval(() => {
+        $.each($('iframe'), (arr,x) => {
+            let src = $(x).attr('src');
+            if (src && src.match(/(ads-iframe)|(disqusads)/gi)) {
+                $(x).remove();
+            }
+        });
+    }, 300);
+})(jQuery);
+	</script>
+	
+
+
+<iframe scrolling="no" allowtransparency="true" src="tiled_libgdx_fichiers/widget_iframe.html" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><iframe id="google_osd_static_frame_5650948356856" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><iframe src="tiled_libgdx_fichiers/a_004.html" id="DMGlobalUserIdetifierIFRAME" name="DMGlobalUserIdetifierIFRAME" style="display: none;" width="1" height="1"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>
