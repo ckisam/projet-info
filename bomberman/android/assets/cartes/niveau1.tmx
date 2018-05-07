@@ -120,7 +120,7 @@
   <object id="17" x="2400" y="1700" width="200" height="1300"/>
  </objectgroup>
  <objectgroup name="Personnage">
-  <object id="19" name="Tom" x="225" y="1525" width="150" height="150">
+  <object id="19" name="Zebra" x="225" y="1525" width="150" height="150">
    <ellipse/>
   </object>
   <object id="20" x="-767.602" y="285.866">

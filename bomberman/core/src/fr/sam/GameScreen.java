@@ -30,7 +30,7 @@ public class GameScreen implements Screen {
 		World.setVelocityThreshold(0.0f);
 		debugRenderer = new Box2DDebugRenderer();
 
-		TiledMap tiledMap = new TmxMapLoader().load("Levels/niveau1.tmx");
+		TiledMap tiledMap = new TmxMapLoader().load("cartes/niveau1.tmx");
 		OrthogonalTiledMapRendererWithSprites tiledMapRenderer = new OrthogonalTiledMapRendererWithSprites(tiledMap,
 				GameConstants.MPP, game.batch);
 
