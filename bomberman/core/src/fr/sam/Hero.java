@@ -28,17 +28,17 @@ public class Hero {
 		MapObjects personnages = (MapObjects) tiledMap.getLayers().get("Personnage").getObjects();
 		System.out.println(tiledMap.getLayers().get("Personnage"));
 		System.out.println(personnages);
-		System.out.println(personnages.get("Tom"));
+		System.out.println(personnages.get("Zebra"));
+		System.out.println(personnages.get("Zebra").getProperties());
+		System.out.println(personnages.get("Zebra").getProperties().get("x", float.class));
 
 		width = GameConstants.HERO_WIDTH;
 		height = GameConstants.HERO_HEIGHT;
-		// posXInit = (personnages.get("Tom").getProperties().get("x", float.class)
-		// + personnages.get("Tom").getProperties().get("width", float.class) / 2) *
-		// GameConstants.MPP;
-		// posYInit = (personnages.get("Tom").getProperties().get("y", float.class)
-		// + personnages.get("Tom").getProperties().get("height", float.class) / 2) *
-		// GameConstants.MPP;
-		// direction = new Vector2();
+		posXInit = (personnages.get("Zebra").getProperties().get("x", float.class)
+				+ personnages.get("Zebra").getProperties().get("width", float.class) / 2) * GameConstants.MPP;
+		posYInit = (personnages.get("Zebra").getProperties().get("y", float.class)
+				+ personnages.get("Zebra").getProperties().get("height", float.class) / 2) * GameConstants.MPP;
+		direction = new Vector2();
 		posXInit = 0;
 		posYInit = 0;
 		direction = new Vector2();

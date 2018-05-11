@@ -1,1 +1,0 @@
-sovrn.ads.renderAd({"w":300,"h":600,"iid":"13388415","cb":"60030417","dv":0,"geo":0,"rl":1,"tid":"a_335493_eeb88b47ae154b589a75d2ed18dc6ef8"});
