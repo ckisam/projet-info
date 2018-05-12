@@ -1,4 +1,4 @@
-package fr.sam.core;
+package fr.sam.core.world.manager;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;

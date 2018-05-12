@@ -1,10 +1,12 @@
-package fr.sam.core.world;
+package fr.sam.core.world.manager;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
+
+import fr.sam.core.world.ZebraWorld;
 
 public class ZebraWorldInputProcessor implements InputProcessor {
 
@@ -30,13 +32,15 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 	@Override
 	public boolean keyDown(int keycode) {
 		if (keycode == Keys.UP) {
-			this.zebraWorld.getZebra().setVitesseY(1);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseY(1);
 		} else if (keycode == Keys.DOWN) {
-			this.zebraWorld.getZebra().setVitesseY(-1);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseY(-1);
 		} else if (keycode == Keys.LEFT) {
-			this.zebraWorld.getZebra().setVitesseX(-1);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseX(-1);
 		} else if (keycode == Keys.RIGHT) {
-			this.zebraWorld.getZebra().setVitesseX(1);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseX(1);
+		} else if (keycode == Keys.SPACE) {
+			this.zebraWorld.getPlateau().getZebraHero().poserBombe();
 		}
 		return false;
 	}
@@ -44,13 +48,13 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 	@Override
 	public boolean keyUp(int keycode) {
 		if (keycode == Keys.UP) {
-			this.zebraWorld.getZebra().setVitesseY(0);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseY(0);
 		} else if (keycode == Keys.DOWN) {
-			this.zebraWorld.getZebra().setVitesseY(0);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseY(0);
 		} else if (keycode == Keys.LEFT) {
-			this.zebraWorld.getZebra().setVitesseX(0);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseX(0);
 		} else if (keycode == Keys.RIGHT) {
-			this.zebraWorld.getZebra().setVitesseX(0);
+			this.zebraWorld.getPlateau().getZebraHero().setVitesseX(0);
 		}
 		return false;
 	}
@@ -69,8 +73,8 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		touchInfoMap.remove(pointer);
-		this.zebraWorld.getZebra().setVitesseX(0);
-		this.zebraWorld.getZebra().setVitesseY(0);
+		this.zebraWorld.getPlateau().getZebraHero().setVitesseX(0);
+		this.zebraWorld.getPlateau().getZebraHero().setVitesseY(0);
 		return false;
 	}
 
@@ -80,15 +84,15 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 		int xDiff = screenX - touchInfo.x, yDiff = screenY - touchInfo.y;
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
 			if (xDiff < 0) {
-				this.zebraWorld.getZebra().setVitesseX(-1);
+				this.zebraWorld.getPlateau().getZebraHero().setVitesseX(-1);
 			} else {
-				this.zebraWorld.getZebra().setVitesseX(1);
+				this.zebraWorld.getPlateau().getZebraHero().setVitesseX(1);
 			}
 		} else {
 			if (yDiff < 0) {
-				this.zebraWorld.getZebra().setVitesseY(1);
+				this.zebraWorld.getPlateau().getZebraHero().setVitesseY(1);
 			} else {
-				this.zebraWorld.getZebra().setVitesseY(-1);
+				this.zebraWorld.getPlateau().getZebraHero().setVitesseY(-1);
 			}
 		}
 		return false;
@@ -96,13 +100,13 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
+		// On ne s'occupe pas des mouvements de souris
 		return false;
 	}
 
 	@Override
 	public boolean scrolled(int amount) {
-		// TODO Auto-generated method stub
+		// On ne s'occupe pas des scroll
 		return false;
 	}
 

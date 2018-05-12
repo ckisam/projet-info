@@ -5,13 +5,12 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.World;
 
-import fr.sam.core.world.EZebraSpriteType;
-import fr.sam.core.world.TileInfo;
+import fr.sam.core.screen.EZebraLayerType;
 import fr.sam.core.world.ZebraSprite;
 import fr.sam.core.world.ZebraWorld;
+import fr.sam.core.world.cellule.ZebraCellule;
+import fr.sam.core.world.personnage.ZebraHero;
 
 public class ZebraWorldMaker {
 
@@ -33,38 +32,45 @@ public class ZebraWorldMaker {
 	}
 
 	public ZebraWorld make(TiledMap tiledMap) {
-		World world = new World(new Vector2(0, 0), true);
-		// World.setVelocityThreshold(0.0f);
-		ZebraWorld res = new ZebraWorld(tiledMap, world);
+		ZebraWorld zebraWorld = new ZebraWorld(tiledMap);
 
-		// Ajout des murs
-		makeLayer(tiledMap, res, EZebraSpriteType.MUR);
+		// Ajout des différentes couches
+		for (EZebraLayerType layerType : EZebraLayerType.values()) {
+			makeLayer(tiledMap, zebraWorld, layerType);
+		}
 
-		// Ajout des briques
-		makeLayer(tiledMap, res, EZebraSpriteType.BRIQUE);
-
-		// Ajout du zebre
-		makeLayer(tiledMap, res, EZebraSpriteType.ZEBRA);
-
-		return (res);
+		return (zebraWorld);
 	}
 
-	private void makeLayer(TiledMap tiledMap, ZebraWorld zebraWorld, EZebraSpriteType type) {
-		MapLayer mapLayer = tiledMap.getLayers().get(type.getLayerName());
+	/**
+	 * Alimente l'univers à partir des différentes couches de la carte carroyée
+	 * 
+	 * @param tiledMap
+	 *            Carte carroyée
+	 * @param zebraWorld
+	 *            Univers Zebra
+	 * @param layerType
+	 *            Type de la couche traitée
+	 */
+	private void makeLayer(TiledMap tiledMap, ZebraWorld zebraWorld, EZebraLayerType layerType) {
+		MapLayer mapLayer = tiledMap.getLayers().get(layerType.getLayerName());
 		if (mapLayer != null && mapLayer instanceof TiledMapTileLayer) {
 			TiledMapTileLayer tileLayer = (TiledMapTileLayer) mapLayer;
-			float tileWidth = tileLayer.getTileWidth();
-			float tileHeight = tileLayer.getTileHeight();
 			for (int i = 0; i < tileLayer.getWidth(); i++) {
 				for (int j = 0; j < tileLayer.getHeight(); j++) {
 					Cell cell = tileLayer.getCell(i, j);
 					if (cell != null) {
 						TiledMapTile tile = cell.getTile();
-						if (tile.getProperties().containsKey(type.getTileName())) {
-							TileInfo tileInfo = new TileInfo(i, j, tileWidth, tileHeight);
-							ZebraSprite zebraSprite = ZebraSpriteFactory.getInstance().create(type, zebraWorld,
-									tileInfo, tile.getTextureRegion());
-							zebraWorld.ajouterZebraSprite(zebraSprite);
+						if (tile.getProperties().containsKey(layerType.getTileName())) {
+							ZebraSprite zebraSprite = layerType.instantiate(tile.getTextureRegion().getTexture());
+							if (zebraSprite instanceof ZebraCellule) {
+								ZebraCellule cellule = (ZebraCellule) zebraSprite;
+								zebraWorld.getPlateau().ajouterCellule(cellule, i, j);
+							}
+							if (zebraSprite instanceof ZebraHero) {
+								ZebraHero hero = (ZebraHero) zebraSprite;
+								zebraWorld.getPlateau().ajouterHero(hero, i, j);
+							}
 						}
 					}
 				}

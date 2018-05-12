@@ -1,4 +1,4 @@
-package fr.sam.core.world;
+package fr.sam.core.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;

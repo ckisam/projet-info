@@ -1,4 +1,4 @@
-package fr.sam.core;
+package fr.sam.core.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -7,10 +7,12 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
-import fr.sam.core.world.ZebraOrthographicCamera;
+import fr.sam.core.BombaZebra;
+import fr.sam.core.ZebraConstantes;
 import fr.sam.core.world.ZebraWorld;
-import fr.sam.core.world.ZebraWorldInputProcessor;
+import fr.sam.core.world.manager.ZebraWorldInputProcessor;
 import fr.sam.core.world.manager.ZebraWorldMaker;
+import fr.sam.core.world.manager.ZebraWorldRenderer;
 
 public class EcranJeu implements Screen {
 
@@ -45,7 +47,7 @@ public class EcranJeu implements Screen {
 
 		camera.update();
 		// zebraWorld.getWorld().step(timeStep, velocityIterations, positionIterations);
-		zebraWorld.getWorld().step(1 / 60f, 6, 2);
+		// zebraWorld.getWorld().step(1 / 60f, 6, 2);
 		zebraWorldRenderer.setView(camera);
 		zebraWorldRenderer.render();
 

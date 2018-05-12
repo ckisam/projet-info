@@ -1,4 +1,4 @@
-package fr.sam.core.world;
+package fr.sam.core.screen;
 
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;

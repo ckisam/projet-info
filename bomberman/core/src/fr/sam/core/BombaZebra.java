@@ -5,6 +5,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import fr.sam.core.screen.EcranJeu;
+
 public class BombaZebra extends Game implements ApplicationListener {
 
 	private SpriteBatch batch;

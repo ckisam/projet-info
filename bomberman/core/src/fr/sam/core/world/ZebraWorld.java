@@ -1,74 +1,52 @@
 package fr.sam.core.world;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
-
-import fr.sam.core.ZebraConstantes;
 
 public class ZebraWorld {
 
-	private final World world;
-	private final TiledMap tiledMap;
-	private Zebra zebra;
-	private ZebraSprite[][] worldElementTab;
+	private TiledMap tiledMap;
+	private World world;
+	private ZebraPlateau plateau;
 
-	public ZebraWorld(TiledMap tiledMap, World world) {
+	public ZebraWorld(TiledMap tiledMap) {
 		super();
-		this.world = world;
 		this.tiledMap = tiledMap;
-		MapProperties prop = tiledMap.getProperties();
-		this.worldElementTab = new ZebraSprite[prop.get(ZebraConstantes.MAP_WIDTH_KEY, Integer.class)][prop
-				.get(ZebraConstantes.MAP_HEIGHT_KEY, Integer.class)];
+		this.world = new World(new Vector2(0, 0), true);
+		// World.setVelocityThreshold(0.0f);
+		this.plateau = new ZebraPlateau(tiledMap);
 	}
 
 	public void renderWorld(Batch batch) {
-		batch.begin();
-		for (int i = 0; i < this.worldElementTab.length; i++) {
-			for (int j = 0; j < this.worldElementTab[i].length; j++) {
-				ZebraSprite zebraSprite = this.worldElementTab[i][j];
-				if (zebraSprite != null) {
-					zebraSprite.render(batch);
-				}
-			}
-		}
-		if (zebra != null) {
-			zebra.render(batch);
-		}
-		batch.end();
-	}
-
-	public void ajouterZebraSprite(ZebraSprite zebraSprite) {
-		if (zebraSprite != null) {
-			if (zebraSprite instanceof Zebra) {
-				this.zebra = (Zebra) zebraSprite;
-			} else {
-				this.worldElementTab[zebraSprite.getIndexX()][zebraSprite.getIndexY()] = zebraSprite;
-			}
-		}
+		plateau.renderPlateau(batch);
 	}
 
 	// Getters et setters
-
-	public World getWorld() {
-		return world;
-	}
 
 	public TiledMap getTiledMap() {
 		return tiledMap;
 	}
 
-	public Zebra getZebra() {
-		return zebra;
+	public void setTiledMap(TiledMap tiledMap) {
+		this.tiledMap = tiledMap;
 	}
 
-	public void setZebra(Zebra zebra) {
-		this.zebra = zebra;
+	public World getWorld() {
+		return world;
 	}
 
-	public ZebraSprite[][] getWorldElementTab() {
-		return worldElementTab;
+	public void setWorld(World world) {
+		this.world = world;
+	}
+
+	public ZebraPlateau getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(ZebraPlateau plateau) {
+		this.plateau = plateau;
 	}
 
 }
