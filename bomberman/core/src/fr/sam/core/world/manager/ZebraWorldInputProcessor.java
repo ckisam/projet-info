@@ -8,6 +8,13 @@ import com.badlogic.gdx.InputProcessor;
 
 import fr.sam.core.world.ZebraWorld;
 
+/**
+ * Gestionnaire des actions utilisateurs pour le jeu en lui-même, à l'exception
+ * du dépôt de bombe pour les écrans tactiles (géré par un bouton dédié)
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraWorldInputProcessor implements InputProcessor {
 
 	private ZebraWorld zebraWorld;
@@ -15,7 +22,6 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 
 	private class TouchInfo {
 		int x = 0, y = 0;
-		boolean deplacement;
 
 		public TouchInfo(int x, int y) {
 			super();
@@ -73,13 +79,6 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		// TouchInfo touchInfo = touchInfoMap.get(pointer);
-		// if (!touchInfo.deplacement) {
-		// this.zebraWorld.getPlateau().getZebraHero().poserBombe();
-		// } else {
-		// this.zebraWorld.getPlateau().getZebraHero().setVitesseX(0);
-		// this.zebraWorld.getPlateau().getZebraHero().setVitesseY(0);
-		// }
 		this.zebraWorld.getPlateau().getZebraHero().setVitesseX(0);
 		this.zebraWorld.getPlateau().getZebraHero().setVitesseY(0);
 		touchInfoMap.remove(pointer);
@@ -89,7 +88,6 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		TouchInfo touchInfo = touchInfoMap.get(pointer);
-		touchInfo.deplacement = true;
 		int xDiff = screenX - touchInfo.x, yDiff = screenY - touchInfo.y;
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
 			if (xDiff < 0) {
@@ -97,7 +95,7 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 			} else {
 				this.zebraWorld.getPlateau().getZebraHero().setVitesseX(1);
 			}
-		} else {
+		} else if (Math.abs(xDiff) < Math.abs(yDiff)) {
 			if (yDiff < 0) {
 				this.zebraWorld.getPlateau().getZebraHero().setVitesseY(1);
 			} else {

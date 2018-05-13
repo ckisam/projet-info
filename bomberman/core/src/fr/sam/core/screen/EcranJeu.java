@@ -5,16 +5,22 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
 import fr.sam.core.BombaZebra;
+import fr.sam.core.ENiveauJeu;
 import fr.sam.core.ZebraConstantes;
 import fr.sam.core.world.ZebraWorld;
 import fr.sam.core.world.manager.ZebraWorldInputProcessor;
 import fr.sam.core.world.manager.ZebraWorldMaker;
 import fr.sam.core.world.manager.ZebraWorldRenderer;
 
+/**
+ * Ecran de jeu, avec la carte du niveau et le menu à droite.
+ * 
+ * @author Samuel
+ *
+ */
 public class EcranJeu implements Screen {
 
 	private final BombaZebra bombaZebra;
@@ -28,13 +34,13 @@ public class EcranJeu implements Screen {
 	// Mode Debug
 	private Box2DDebugRenderer debugRenderer;
 
-	public EcranJeu(final BombaZebra bombaZebra) {
+	public EcranJeu(final BombaZebra bombaZebra, ENiveauJeu niveau) {
 		this.bombaZebra = bombaZebra;
 
-		TiledMap tiledMap = new TmxMapLoader().load("cartes/niveau2.tmx");
-		this.camera = new ZebraOrthographicCamera(tiledMap);
-		this.camera.setToOrtho();
+		TiledMap tiledMap = niveau.getTiledMap();
 		this.zebraWorld = ZebraWorldMaker.getInstance().make(tiledMap);
+		this.camera = new ZebraOrthographicCamera(zebraWorld);
+		this.camera.setToOrtho();
 		this.zebraWorldRenderer = new ZebraWorldRenderer(zebraWorld, bombaZebra.getBatch());
 
 		// Les boutons
@@ -55,6 +61,7 @@ public class EcranJeu implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+		camera.resize();
 		camera.update();
 		// zebraWorld.getWorld().step(timeStep, velocityIterations, positionIterations);
 		// zebraWorld.getWorld().step(1 / 60f, 6, 2);

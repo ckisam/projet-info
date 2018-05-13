@@ -9,7 +9,10 @@ public enum ETextureRessource {
 	EXPLOSION_FOYER("texture/explosionFoyer.png"), //
 	EXPLOSION("texture/explosion.png"), //
 	BOUTON_BOMBE("texture/boutonBombe.png"), //
-	BOUTON_BOMBE_DOWN("texture/boutonBombeDown.png");
+	BOUTON_BOMBE_DOWN("texture/boutonBombeDown.png"), //
+	ZEBRE_ACCUEIL("texture/zebreAccueil.png"), //
+	VIE("texture/vie.png"), //
+	BONUS("texture/bonus.png");
 
 	private final Texture texture;
 

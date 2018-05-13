@@ -2,18 +2,29 @@ package fr.sam.core.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import fr.sam.core.BombaZebra;
+import fr.sam.core.ETextureRessource;
 import fr.sam.core.ZebraConstantes;
 
+/**
+ * Ecran du menu principal, ouvert au lancement du jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public class EcranMenu implements Screen {
 
 	private final BombaZebra bombaZebra;
@@ -27,28 +38,36 @@ public class EcranMenu implements Screen {
 		stage = new Stage(new ScreenViewport());
 		Gdx.input.setInputProcessor(stage);
 
-		Table table = new Table();
-		table.setFillParent(true);
-		table.setDebug(ZebraConstantes.DEBUG_MODE);
-		stage.addActor(table);
+		Table mainTable = new Table();
+		mainTable.setFillParent(true);
+		mainTable.setDebug(ZebraConstantes.DEBUG_MODE);
+		stage.addActor(mainTable);
 
+		// Skin skin = ESkinRessource.COMIC.getSkin();
 		Skin skin = new Skin(Gdx.files.internal("skin/comic-ui.json"));
 		boutonJouer = new TextButton("Jouer", skin);
 		boutonQuitter = new TextButton("Quitter", skin);
 
-		table.add(boutonJouer).fillX().uniformX();
-		table.row().pad(10, 0, 10, 0);
-		table.add(boutonQuitter).fillX().uniformX();
-		// table.add(boutonJouer);
-		// table.add(boutonJouer);
-		// table.row().pad(10, 0, 10, 0);
-		// table.add(boutonJouer);
-		// table.add(boutonJouer);
-		// table.add(boutonJouer);
-		// table.row();
-		// table.add(boutonJouer);
-		// table.row();
-		// table.add(boutonQuitter).fillX().uniformX();
+		// On place les composants
+		Table componentTable = new Table();
+		componentTable.setBackground(new BackgroundColor(new Color(0x8f8f8fff)));
+		componentTable.row().pad(10, 10, 0, 10);
+		componentTable.add(new Image(ETextureRessource.ZEBRE_ACCUEIL.getTexture()));
+		Label label = new Label("BombaZebra", skin);
+		label.setAlignment(Align.center);
+		componentTable.row().pad(0, 10, 25, 10);
+		componentTable.add(label).fillX().uniformX();
+		componentTable.row().pad(10, 10, 10, 10);
+		componentTable.add(boutonJouer).fillX().uniformX();
+		componentTable.row().pad(0, 10, 10, 10);
+		componentTable.add(boutonQuitter).fillX().uniformX();
+
+		Table borderTable = new Table();
+		borderTable.setBackground(new BackgroundColor(new Color(0x696969ff)));
+		borderTable.row().pad(2, 2, 2, 2);
+		borderTable.add(componentTable);
+		mainTable.row();
+		mainTable.add(borderTable);
 	}
 
 	@Override
@@ -62,14 +81,14 @@ public class EcranMenu implements Screen {
 		boutonJouer.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				bombaZebra.setScreen(new EcranJeu(bombaZebra));
+				bombaZebra.setScreen(new EcranChoixNiveau(bombaZebra));
 			}
 		});
 	}
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		stage.draw();
@@ -82,20 +101,14 @@ public class EcranMenu implements Screen {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
