@@ -2,6 +2,12 @@ package fr.sam.core.world.cellule;
 
 import fr.sam.core.ETextureRessource;
 
+/**
+ * Spécifique à l'endroit où a été déposé la bombe.
+ * 
+ * @author Samuel
+ *
+ */
 public class FoyerExplosion extends Explosion {
 
 	public FoyerExplosion(ZebraCellule cellule) {

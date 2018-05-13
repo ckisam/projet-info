@@ -9,6 +9,13 @@ import fr.sam.core.world.cellule.BriqueCellule;
 import fr.sam.core.world.cellule.MurCellule;
 import fr.sam.core.world.personnage.ZebraHero;
 
+/**
+ * Différentes couches de carte carroyée (Tiled Map) qu'est capable de
+ * comprendre le jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public enum EZebraLayerType {
 
 	MUR("Murs", "Mur", MurCellule.class), //

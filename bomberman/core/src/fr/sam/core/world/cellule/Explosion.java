@@ -7,6 +7,12 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 
 import fr.sam.core.world.ZebraSprite;
 
+/**
+ * Explosion suite au dépôt d'une bombe par le joueur.
+ * 
+ * @author Samuel
+ *
+ */
 public abstract class Explosion extends ZebraSprite {
 
 	private static final int TEMPS_EXPLOSION = 500;

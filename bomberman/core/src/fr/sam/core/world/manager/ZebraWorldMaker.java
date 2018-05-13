@@ -12,6 +12,13 @@ import fr.sam.core.world.ZebraWorld;
 import fr.sam.core.world.cellule.ZebraCellule;
 import fr.sam.core.world.personnage.ZebraHero;
 
+/**
+ * Gestionnaire, dédié à la création d'un univers de jeu, à partir d'une carte
+ * carroyée (Tiled Map)
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraWorldMaker {
 
 	private static volatile ZebraWorldMaker maker;
@@ -31,6 +38,13 @@ public class ZebraWorldMaker {
 		return (maker);
 	}
 
+	/**
+	 * Crée un univers de jeu à partir d'une carte carroyée (Tiled Map)
+	 * 
+	 * @param tiledMap
+	 *            Carte carroyée
+	 * @return
+	 */
 	public ZebraWorld make(TiledMap tiledMap) {
 		ZebraWorld zebraWorld = new ZebraWorld(tiledMap);
 

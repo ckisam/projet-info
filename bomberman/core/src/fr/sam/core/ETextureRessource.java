@@ -3,6 +3,12 @@ package fr.sam.core;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 
+/**
+ * Repertorie les ressources de texture, i.e les images du jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public enum ETextureRessource {
 
 	BOMBE("texture/bombe.png"), //

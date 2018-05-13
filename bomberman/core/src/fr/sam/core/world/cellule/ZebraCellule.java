@@ -6,6 +6,12 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import fr.sam.core.world.ZebraPlateau;
 import fr.sam.core.world.ZebraSprite;
 
+/**
+ * Définition standard d'une case du jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public abstract class ZebraCellule extends ZebraSprite {
 
 	private ZebraPlateau plateau;

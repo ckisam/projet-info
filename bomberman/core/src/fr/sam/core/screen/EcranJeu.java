@@ -23,7 +23,6 @@ import fr.sam.core.world.manager.ZebraWorldRenderer;
  */
 public class EcranJeu implements Screen {
 
-	private final BombaZebra bombaZebra;
 	private ZebraOrthographicCamera camera;
 	private ZebraWorldRenderer zebraWorldRenderer;
 	private ZebraWorld zebraWorld;
@@ -35,7 +34,6 @@ public class EcranJeu implements Screen {
 	private Box2DDebugRenderer debugRenderer;
 
 	public EcranJeu(final BombaZebra bombaZebra, ENiveauJeu niveau) {
-		this.bombaZebra = bombaZebra;
 
 		TiledMap tiledMap = niveau.getTiledMap();
 		this.zebraWorld = ZebraWorldMaker.getInstance().make(tiledMap);
@@ -63,8 +61,6 @@ public class EcranJeu implements Screen {
 
 		camera.resize();
 		camera.update();
-		// zebraWorld.getWorld().step(timeStep, velocityIterations, positionIterations);
-		// zebraWorld.getWorld().step(1 / 60f, 6, 2);
 		zebraWorldRenderer.setView(camera);
 		zebraWorldRenderer.render();
 
@@ -80,8 +76,6 @@ public class EcranJeu implements Screen {
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -92,26 +86,18 @@ public class EcranJeu implements Screen {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-
 	}
 
 }

@@ -2,6 +2,12 @@ package fr.sam.core.world.cellule;
 
 import com.badlogic.gdx.graphics.Texture;
 
+/**
+ * Case 'brique' : destructible par une bombe.
+ * 
+ * @author Samuel
+ *
+ */
 public class BriqueCellule extends ZebraCellule {
 
 	public BriqueCellule(Texture texture) {

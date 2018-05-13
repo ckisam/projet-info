@@ -8,6 +8,12 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import fr.sam.core.world.ZebraSprite;
 import fr.sam.core.world.cellule.ZebraCellule;
 
+/**
+ * Personnage pouvant évoluer au sein de l'univers de jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraPersonnage extends ZebraSprite {
 
 	private static final int UPDATE_DELAY = 100;

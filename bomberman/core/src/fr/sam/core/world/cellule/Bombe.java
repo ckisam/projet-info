@@ -8,6 +8,12 @@ import fr.sam.core.ETextureRessource;
 import fr.sam.core.ZebraConstantes;
 import fr.sam.core.world.ZebraSprite;
 
+/**
+ * Bombe déposée par un personnage.
+ * 
+ * @author Samuel
+ *
+ */
 public class Bombe extends ZebraSprite {
 
 	// private static final int COMPTE_A_REBOURS = 4000;

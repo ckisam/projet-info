@@ -9,6 +9,12 @@ import fr.sam.core.world.cellule.CelluleVide;
 import fr.sam.core.world.cellule.ZebraCellule;
 import fr.sam.core.world.personnage.ZebraHero;
 
+/**
+ * Ensemble des cases du jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraPlateau {
 
 	private final float tileWidth, tileHeight;

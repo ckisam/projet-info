@@ -7,6 +7,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import fr.sam.core.ETextureRessource;
 
+/**
+ * Bouton permettant de poser une bombe. Créer pour la jouabilité sur écran
+ * tactile.
+ * 
+ * @author Samuel
+ *
+ */
 public class BoutonBombe extends ImageButton {
 
 	private static final Drawable IMAGE_UP = new TextureRegionDrawable(

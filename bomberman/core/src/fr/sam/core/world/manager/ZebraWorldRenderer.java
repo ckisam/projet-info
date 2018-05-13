@@ -5,6 +5,12 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import fr.sam.core.world.ZebraWorld;
 
+/**
+ * Permet le dessin de l'univers de jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraWorldRenderer extends OrthogonalTiledMapRenderer {
 
 	private ZebraWorld zebraWorld;

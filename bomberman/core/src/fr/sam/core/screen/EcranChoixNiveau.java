@@ -15,6 +15,12 @@ import fr.sam.core.BombaZebra;
 import fr.sam.core.ENiveauJeu;
 import fr.sam.core.ZebraConstantes;
 
+/**
+ * Ecran permettant de choisir un niveau de jeu.
+ * 
+ * @author Samuel
+ *
+ */
 public class EcranChoixNiveau implements Screen {
 
 	final BombaZebra bombaZebra;

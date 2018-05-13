@@ -3,6 +3,13 @@ package fr.sam.core.screen;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 
+/**
+ * POJO résumant les informations d'une carte carroyée (nombre de carreaux et
+ * taille).
+ * 
+ * @author Samuel
+ *
+ */
 public class TiledMapInfo {
 
 	private static final String NB_TILE_WIDTH = "width";

@@ -4,7 +4,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
 /**
- * Les différents niveaux du jeu
+ * Repertorie les différents niveaux du jeu
  * 
  * @author Samuel
  *

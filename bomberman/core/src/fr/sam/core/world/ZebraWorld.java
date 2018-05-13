@@ -5,6 +5,13 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 
+/**
+ * Univers du jeu, concentrant l'ensemble des éléments (cases, personnages,
+ * bonus, ...)
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraWorld {
 
 	private TiledMap tiledMap;

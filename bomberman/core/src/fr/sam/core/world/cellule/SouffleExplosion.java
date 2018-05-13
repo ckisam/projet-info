@@ -2,6 +2,12 @@ package fr.sam.core.world.cellule;
 
 import fr.sam.core.ETextureRessource;
 
+/**
+ * Entoure le foyer d'une explosion.
+ * 
+ * @author Samuel
+ *
+ */
 public class SouffleExplosion extends Explosion {
 
 	private EDirection direction;

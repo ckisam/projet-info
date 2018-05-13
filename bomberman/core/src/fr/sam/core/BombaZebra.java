@@ -25,7 +25,7 @@ public class BombaZebra extends Game implements ApplicationListener {
 
 		// TODO remettre menu principal
 		// this.setScreen(new EcranMenu(this));
-		this.setScreen(new EcranJeu(this, ENiveauJeu.NIVEAU_2));
+		this.setScreen(new EcranJeu(this, ENiveauJeu.NIVEAU_1));
 	}
 
 	@Override

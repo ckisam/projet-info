@@ -5,6 +5,12 @@ import com.badlogic.gdx.graphics.Texture;
 import fr.sam.core.world.cellule.Bombe;
 import fr.sam.core.world.cellule.ZebraCellule;
 
+/**
+ * Personnage manipulé par le joueur.
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraHero extends ZebraPersonnage {
 
 	public ZebraHero(Texture texture) {

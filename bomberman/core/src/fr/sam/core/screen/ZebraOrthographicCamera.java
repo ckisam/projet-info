@@ -6,6 +6,12 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import fr.sam.core.ZebraConstantes;
 import fr.sam.core.world.ZebraWorld;
 
+/**
+ * Camera permettant d'afficher le jeu. S'adapte à la position du joueur.
+ * 
+ * @author Samuel
+ *
+ */
 public class ZebraOrthographicCamera extends OrthographicCamera {
 
 	private ZebraWorld zebraWorld;
@@ -22,6 +28,18 @@ public class ZebraOrthographicCamera extends OrthographicCamera {
 		super.setToOrtho(false, this.viewportWidth, this.viewportHeight);
 	}
 
+	/**
+	 * <p>
+	 * Méthode importante : permet de positionner correctement la caméra étant donné
+	 * la taille de l'écran, la taille de la carte et la position du joueur sur la
+	 * carte.
+	 * </p>
+	 * <p>
+	 * Règle de gestion : si la carte est contenable dans l'écran, elle est centrée.
+	 * Sinon, la camera est centré sur le joueur, sauf s'il est trop proche d'un
+	 * bord.
+	 * </p>
+	 */
 	public void resize() {
 		// On récupère les infos
 		int ecranWidth = Gdx.graphics.getWidth();
@@ -34,7 +52,7 @@ public class ZebraOrthographicCamera extends OrthographicCamera {
 		int mapWidth = mapInfo.getWidth();
 		int mapHeight = mapInfo.getHeight();
 
-		// On adapte à la taille de la carte
+		// On adapte à la taille de la carte et à la position du joueur
 		float camX = (mapWidth + menuWidth) / 2, camY = (mapHeight + menuHeight) / 2;
 		float heroX = zebraWorld.getPlateau().getZebraHero().getX(),
 				heroY = zebraWorld.getPlateau().getZebraHero().getY();

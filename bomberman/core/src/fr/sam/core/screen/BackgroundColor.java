@@ -8,6 +8,13 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
+/**
+ * Bricolage, permettant de donner un fond de couleur aux éléments des écrans de
+ * menu.
+ * 
+ * @author Samuel
+ *
+ */
 public class BackgroundColor implements Drawable {
 
 	private Float x;

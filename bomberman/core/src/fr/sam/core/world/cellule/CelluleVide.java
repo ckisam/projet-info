@@ -2,6 +2,12 @@ package fr.sam.core.world.cellule;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 
+/**
+ * Case vide : case standard pour le déplacement du joueur.
+ * 
+ * @author Samuel
+ *
+ */
 public class CelluleVide extends ZebraCellule {
 
 	@Override
