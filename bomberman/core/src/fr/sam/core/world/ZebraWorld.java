@@ -17,13 +17,14 @@ public class ZebraWorld {
 	private TiledMap tiledMap;
 	private World world;
 	private ZebraPlateau plateau;
+	private EEtatJeu etatJeu = EEtatJeu.EN_COURS;
 
 	public ZebraWorld(TiledMap tiledMap) {
 		super();
 		this.tiledMap = tiledMap;
 		this.world = new World(new Vector2(0, 0), true);
 		// World.setVelocityThreshold(0.0f);
-		this.plateau = new ZebraPlateau(tiledMap);
+		this.plateau = new ZebraPlateau(this);
 	}
 
 	public void renderWorld(Batch batch) {
@@ -54,6 +55,14 @@ public class ZebraWorld {
 
 	public void setPlateau(ZebraPlateau plateau) {
 		this.plateau = plateau;
+	}
+
+	public EEtatJeu getEtatJeu() {
+		return etatJeu;
+	}
+
+	public void setEtatJeu(EEtatJeu etatJeu) {
+		this.etatJeu = etatJeu;
 	}
 
 }

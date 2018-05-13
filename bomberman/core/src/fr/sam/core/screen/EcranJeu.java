@@ -23,6 +23,7 @@ import fr.sam.core.world.manager.ZebraWorldRenderer;
  */
 public class EcranJeu implements Screen {
 
+	private final BombaZebra bombaZebra;
 	private ZebraOrthographicCamera camera;
 	private ZebraWorldRenderer zebraWorldRenderer;
 	private ZebraWorld zebraWorld;
@@ -34,6 +35,7 @@ public class EcranJeu implements Screen {
 	private Box2DDebugRenderer debugRenderer;
 
 	public EcranJeu(final BombaZebra bombaZebra, ENiveauJeu niveau) {
+		this.bombaZebra = bombaZebra;
 
 		TiledMap tiledMap = niveau.getTiledMap();
 		this.zebraWorld = ZebraWorldMaker.getInstance().make(tiledMap);
@@ -71,6 +73,20 @@ public class EcranJeu implements Screen {
 		// Mode debug
 		if (ZebraConstantes.DEBUG_MODE) {
 			debugRenderer.render(zebraWorld.getWorld(), camera.combined);
+		}
+
+		// Condition de fin
+		switch (zebraWorld.getEtatJeu()) {
+		case GAGNE:
+			dispose();
+			bombaZebra.setScreen(new EcranFinJeuGagne(bombaZebra));
+			break;
+		case PERDU:
+			dispose();
+			bombaZebra.setScreen(new EcranFinJeuPerdu(bombaZebra));
+			break;
+		default:
+			break;
 		}
 	}
 

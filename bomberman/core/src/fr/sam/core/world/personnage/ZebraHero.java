@@ -2,7 +2,9 @@ package fr.sam.core.world.personnage;
 
 import com.badlogic.gdx.graphics.Texture;
 
+import fr.sam.core.world.EEtatJeu;
 import fr.sam.core.world.cellule.Bombe;
+import fr.sam.core.world.cellule.SortieCellule;
 import fr.sam.core.world.cellule.ZebraCellule;
 
 /**
@@ -24,6 +26,15 @@ public class ZebraHero extends ZebraPersonnage {
 			cellule.setBombe(bombe);
 			bombe.enclencher();
 		}
+	}
+
+	@Override
+	protected synchronized void bouger() {
+		ZebraCellule cellule = getCellule();
+		if (cellule instanceof SortieCellule) {
+			cellule.getPlateau().getZebraWorld().setEtatJeu(EEtatJeu.GAGNE);
+		}
+		super.bouger();
 	}
 
 }

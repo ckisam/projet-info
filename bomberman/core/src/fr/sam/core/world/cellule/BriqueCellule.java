@@ -32,9 +32,15 @@ public class BriqueCellule extends ZebraCellule {
 	@Override
 	public void gererFinExplosion() {
 		this.setExplosion(null);
-		CelluleVide nouvelleCellule = new CelluleVide();
-		this.getPlateau().ajouterCellule(nouvelleCellule, getPosX(), getPosY());
-		// TODO Gerer les bonus :) (enfin !!)
+		if (isSortie()) {
+			SortieCellule sortie = new SortieCellule();
+			this.getPlateau().ajouterCellule(new CelluleVide(), getPosX(), getPosY());
+			this.getPlateau().ajouterCellule(sortie, getPosX(), getPosY());
+		} else {
+			CelluleVide nouvelleCellule = new CelluleVide();
+			this.getPlateau().ajouterCellule(nouvelleCellule, getPosX(), getPosY());
+			// TODO Gerer les bonus :) (enfin !!)
+		}
 	}
 
 }

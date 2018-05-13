@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -16,71 +15,59 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import fr.sam.core.BombaZebra;
-import fr.sam.core.ETextureRessource;
 import fr.sam.core.ZebraConstantes;
 
 /**
- * Ecran du menu principal, ouvert au lancement du jeu.
+ * Ecran de fin de jeu, lorsque la partie est perdue :(
  * 
  * @author Samuel
  *
  */
-public class EcranMenu implements Screen {
+public class EcranFinJeuPerdu implements Screen {
 
 	private final BombaZebra bombaZebra;
 	private Stage stage;
-	private TextButton boutonJouer;
-	private TextButton boutonQuitter;
+	private TextButton boutonMenuPrincipal;
+	private TextButton boutonRecommencer;
 
-	public EcranMenu(final BombaZebra bombaZebra) {
+	public EcranFinJeuPerdu(final BombaZebra bombaZebra) {
 		this.bombaZebra = bombaZebra;
 
 		stage = new Stage(new ScreenViewport());
 		Gdx.input.setInputProcessor(stage);
 
-		Table mainTable = new Table();
-		mainTable.setFillParent(true);
-		mainTable.setDebug(ZebraConstantes.DEBUG_MODE);
-		stage.addActor(mainTable);
+		Table table = new Table();
+		table.setFillParent(true);
+		table.setDebug(ZebraConstantes.DEBUG_MODE);
+		table.setBackground(new BackgroundColor(new Color(0xC0C0C0ff)));
+		stage.addActor(table);
 
 		Skin skin = new Skin(Gdx.files.internal("skin/comic-ui.json"));
-		boutonJouer = new TextButton("Jouer", skin);
-		boutonQuitter = new TextButton("Quitter", skin);
+		Label label = new Label("Oh non ! Tu as perdu ...", skin);
+		label.setAlignment(Align.center);
+		boutonMenuPrincipal = new TextButton("Menu principal", skin);
+		boutonRecommencer = new TextButton("Recommencer", skin);
 
 		// On place les composants
-		Table componentTable = new Table();
-		componentTable.setBackground(new BackgroundColor(new Color(0x8f8f8fff)));
-		componentTable.row().pad(10, 10, 0, 10);
-		componentTable.add(new Image(ETextureRessource.ZEBRE_ACCUEIL.getTexture()));
-		Label label = new Label("BombaZebra", skin);
-		label.setAlignment(Align.center);
-		componentTable.row().pad(0, 10, 25, 10);
-		componentTable.add(label).fillX().uniformX();
-		componentTable.row().pad(10, 10, 10, 10);
-		componentTable.add(boutonJouer).fillX().uniformX();
-		componentTable.row().pad(0, 10, 10, 10);
-		componentTable.add(boutonQuitter).fillX().uniformX();
-
-		Table borderTable = new Table();
-		borderTable.setBackground(new BackgroundColor(new Color(0x696969ff)));
-		borderTable.row().pad(2, 2, 2, 2);
-		borderTable.add(componentTable);
-		mainTable.row();
-		mainTable.add(borderTable);
+		table.row().pad(10, 10, 10, 10);
+		table.add(label).colspan(2).fillX().uniformX();
+		table.row().pad(10, 10, 10, 10);
+		table.add(boutonMenuPrincipal).fillX().uniformX();
+		table.add(boutonRecommencer).fillX().uniformX();
 	}
 
 	@Override
 	public void show() {
-		boutonQuitter.addListener(new ChangeListener() {
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				Gdx.app.exit();
-			}
-		});
-		boutonJouer.addListener(new ChangeListener() {
+		boutonRecommencer.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				bombaZebra.setScreen(new EcranChoixNiveau(bombaZebra));
+			}
+		});
+		boutonMenuPrincipal.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				bombaZebra.setScreen(new EcranMenu(bombaZebra));
 			}
 		});
 	}

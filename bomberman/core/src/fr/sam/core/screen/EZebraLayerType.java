@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import fr.sam.core.world.ZebraSprite;
 import fr.sam.core.world.cellule.BriqueCellule;
 import fr.sam.core.world.cellule.MurCellule;
+import fr.sam.core.world.cellule.SortieCellule;
 import fr.sam.core.world.personnage.ZebraHero;
 
 /**
@@ -20,7 +21,8 @@ public enum EZebraLayerType {
 
 	MUR("Murs", "Mur", MurCellule.class), //
 	BRIQUES("Briques", "Brique", BriqueCellule.class), //
-	HERO("Zebra", "Zebra", ZebraHero.class);
+	HERO("Zebra", "Zebra", ZebraHero.class), //
+	SORTIE("Sortie", "Sortie", SortieCellule.class);
 
 	private final String layerName;
 	private final String tileName;

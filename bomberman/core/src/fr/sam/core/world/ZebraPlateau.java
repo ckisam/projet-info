@@ -2,10 +2,11 @@ package fr.sam.core.world;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 
 import fr.sam.core.ZebraConstantes;
+import fr.sam.core.world.cellule.BriqueCellule;
 import fr.sam.core.world.cellule.CelluleVide;
+import fr.sam.core.world.cellule.SortieCellule;
 import fr.sam.core.world.cellule.ZebraCellule;
 import fr.sam.core.world.personnage.ZebraHero;
 
@@ -17,13 +18,15 @@ import fr.sam.core.world.personnage.ZebraHero;
  */
 public class ZebraPlateau {
 
+	private ZebraWorld zebraWorld;
 	private final float tileWidth, tileHeight;
 	private ZebraHero zebraHero;
 	private final ZebraCellule[][] celluleTab;
 
-	public ZebraPlateau(TiledMap tiledMap) {
+	public ZebraPlateau(ZebraWorld zebraWorld) {
 		super();
-		MapProperties prop = tiledMap.getProperties();
+		this.zebraWorld = zebraWorld;
+		MapProperties prop = zebraWorld.getTiledMap().getProperties();
 		this.celluleTab = new ZebraCellule[prop.get(ZebraConstantes.MAP_WIDTH_KEY, Integer.class)][prop
 				.get(ZebraConstantes.MAP_HEIGHT_KEY, Integer.class)];
 		this.tileWidth = prop.get(ZebraConstantes.TILE_WIDTH_KEY, Integer.class);
@@ -45,6 +48,17 @@ public class ZebraPlateau {
 			maxJ = celluleTab[0].length;
 		}
 		if (i >= 0 && i < maxI && j >= 0 && j < maxJ) {
+			if (cellule instanceof SortieCellule) {
+				ZebraCellule oldCellule = celluleTab[i][j];
+				if (oldCellule != null && oldCellule instanceof BriqueCellule) {
+					oldCellule.setSortie(true);
+					return;
+				}
+			}
+			ZebraCellule oldCellule = celluleTab[i][j];
+			if (oldCellule != null && oldCellule.isSortie()) {
+				cellule.setSortie(true);
+			}
 			celluleTab[i][j] = cellule;
 			cellule.placer(this, i, j);
 			cellule.reinitVoisins();
@@ -123,6 +137,14 @@ public class ZebraPlateau {
 	}
 
 	// Getters et setters
+
+	public ZebraWorld getZebraWorld() {
+		return zebraWorld;
+	}
+
+	public void setZebraWorld(ZebraWorld zebraWorld) {
+		this.zebraWorld = zebraWorld;
+	}
 
 	public ZebraHero getZebraHero() {
 		return zebraHero;

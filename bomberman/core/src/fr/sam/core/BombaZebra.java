@@ -5,7 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import fr.sam.core.screen.EcranJeu;
+import fr.sam.core.screen.EcranMenu;
 
 /**
  * Classe centrale, appelée par le lanceur adapté (bureau, android, ...)
@@ -23,9 +23,7 @@ public class BombaZebra extends Game implements ApplicationListener {
 		batch = new SpriteBatch();
 		assets = new AssetManager();
 
-		// TODO remettre menu principal
-		// this.setScreen(new EcranMenu(this));
-		this.setScreen(new EcranJeu(this, ENiveauJeu.NIVEAU_1));
+		this.setScreen(new EcranMenu(this));
 	}
 
 	@Override

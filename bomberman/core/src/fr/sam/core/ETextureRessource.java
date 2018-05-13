@@ -18,7 +18,8 @@ public enum ETextureRessource {
 	BOUTON_BOMBE_DOWN("texture/boutonBombeDown.png"), //
 	ZEBRE_ACCUEIL("texture/zebreAccueil.png"), //
 	VIE("texture/vie.png"), //
-	BONUS("texture/bonus.png");
+	BONUS("texture/bonus.png"), //
+	SORTIE("texture/sortie.png");
 
 	private final Texture texture;
 

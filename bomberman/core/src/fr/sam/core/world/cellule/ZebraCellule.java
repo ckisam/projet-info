@@ -27,6 +27,7 @@ public abstract class ZebraCellule extends ZebraSprite {
 
 	private Bombe bombe;
 	private Explosion explosion;
+	private boolean sortie;
 
 	public ZebraCellule() {
 		super();
@@ -208,6 +209,14 @@ public abstract class ZebraCellule extends ZebraSprite {
 
 	public void setExplosion(Explosion explosion) {
 		this.explosion = explosion;
+	}
+
+	public boolean isSortie() {
+		return sortie;
+	}
+
+	public void setSortie(boolean sortie) {
+		this.sortie = sortie;
 	}
 
 }

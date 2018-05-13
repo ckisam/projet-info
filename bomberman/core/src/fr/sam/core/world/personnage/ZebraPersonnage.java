@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
+import fr.sam.core.world.EEtatJeu;
 import fr.sam.core.world.ZebraSprite;
 import fr.sam.core.world.cellule.ZebraCellule;
 
@@ -16,10 +17,14 @@ import fr.sam.core.world.cellule.ZebraCellule;
  */
 public class ZebraPersonnage extends ZebraSprite {
 
-	private static final int UPDATE_DELAY = 100;
+	private static final int DELAI_DEPLACEMENT = 100;
+	private static final int DELAI_BLESSURE = 1000;
 	private static final int NB_STEP = 4;
 
-	private volatile long nanoTime = System.nanoTime();
+	private volatile long mouvementNanoTime = System.nanoTime();
+	private volatile long blessureNanoTime = System.nanoTime();
+
+	private int nbVie = 1;
 
 	private ZebraCellule cellule;
 	private int verStep = 0, horStep = 0;
@@ -43,13 +48,14 @@ public class ZebraPersonnage extends ZebraSprite {
 
 	@Override
 	public void render(Batch batch) {
+		gererBlessure();
 		bouger();
 		this.draw(batch);
 	}
 
-	private synchronized void bouger() {
-		long timeDiff = System.nanoTime() - nanoTime;
-		if (TimeUnit.MILLISECONDS.convert(timeDiff, TimeUnit.NANOSECONDS) > UPDATE_DELAY) {
+	protected synchronized void bouger() {
+		long timeDiff = System.nanoTime() - mouvementNanoTime;
+		if (TimeUnit.MILLISECONDS.convert(timeDiff, TimeUnit.NANOSECONDS) > DELAI_DEPLACEMENT) {
 			if (!(vitesseX == 0 && vitesseY == 0)) {
 				if (vitesseX < 0) {
 					bougerGauche();
@@ -63,7 +69,19 @@ public class ZebraPersonnage extends ZebraSprite {
 				}
 				updatePosition();
 			}
-			nanoTime = System.nanoTime();
+			mouvementNanoTime = System.nanoTime();
+		}
+	}
+
+	protected synchronized void gererBlessure() {
+		long timeDiff = System.nanoTime() - blessureNanoTime;
+		if (TimeUnit.MILLISECONDS.convert(timeDiff, TimeUnit.NANOSECONDS) > DELAI_BLESSURE) {
+			if (getCellule().explose()) {
+				nbVie -= 1;
+			}
+			if (nbVie <= 0) {
+				getCellule().getPlateau().getZebraWorld().setEtatJeu(EEtatJeu.PERDU);
+			}
 		}
 	}
 
@@ -124,6 +142,14 @@ public class ZebraPersonnage extends ZebraSprite {
 	}
 
 	// Getters et setters
+
+	public int getNbVie() {
+		return nbVie;
+	}
+
+	public void setNbVie(int nbVie) {
+		this.nbVie = nbVie;
+	}
 
 	public ZebraCellule getCellule() {
 		return cellule;
