@@ -1,4 +1,4 @@
-package fr.sam.core.world;
+package fr.sam.core;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -7,7 +7,9 @@ public enum ETextureRessource {
 
 	BOMBE("texture/bombe.png"), //
 	EXPLOSION_FOYER("texture/explosionFoyer.png"), //
-	EXPLOSION("texture/explosion.png");
+	EXPLOSION("texture/explosion.png"), //
+	BOUTON_BOMBE("texture/boutonBombe.png"), //
+	BOUTON_BOMBE_DOWN("texture/boutonBombeDown.png");
 
 	private final Texture texture;
 

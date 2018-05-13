@@ -3,33 +3,9 @@
  <tileset firstgid="1" name="herbe" tilewidth="32" tileheight="32" tilecount="400" columns="20">
   <image source="herbe.jpg" width="640" height="640"/>
  </tileset>
- <tileset firstgid="401" name="brique" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="brique.png" width="32" height="32"/>
-  <tile id="0">
-   <properties>
-    <property name="Brique" value="brique"/>
-   </properties>
-  </tile>
- </tileset>
- <tileset firstgid="402" name="pierre" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="pierre.png" width="32" height="32"/>
-  <tile id="0">
-   <properties>
-    <property name="Mur" value="Caillou"/>
-   </properties>
-  </tile>
- </tileset>
- <tileset firstgid="403" name="zebre" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <properties>
-   <property name="Zebra" value="Zebre"/>
-  </properties>
-  <image source="zebre.png" width="32" height="32"/>
-  <tile id="0">
-   <properties>
-    <property name="Zebra" value="Zebra"/>
-   </properties>
-  </tile>
- </tileset>
+ <tileset firstgid="401" source="brique.tsx"/>
+ <tileset firstgid="402" source="pierre.tsx"/>
+ <tileset firstgid="403" source="zebre.tsx"/>
  <layer name="Fond" width="13" height="9">
   <data encoding="csv">
 87,88,89,90,91,92,93,94,95,96,97,98,99,

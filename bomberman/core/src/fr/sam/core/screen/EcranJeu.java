@@ -1,6 +1,7 @@
 package fr.sam.core.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -21,20 +22,29 @@ public class EcranJeu implements Screen {
 	private ZebraWorldRenderer zebraWorldRenderer;
 	private ZebraWorld zebraWorld;
 
+	// Les boutons
+	private MenuEcranJeu menu;
+
 	// Mode Debug
 	private Box2DDebugRenderer debugRenderer;
 
 	public EcranJeu(final BombaZebra bombaZebra) {
 		this.bombaZebra = bombaZebra;
 
-		TiledMap tiledMap = new TmxMapLoader().load("cartes/niveau1.tmx");
+		TiledMap tiledMap = new TmxMapLoader().load("cartes/niveau2.tmx");
 		this.camera = new ZebraOrthographicCamera(tiledMap);
 		this.camera.setToOrtho();
 		this.zebraWorld = ZebraWorldMaker.getInstance().make(tiledMap);
 		this.zebraWorldRenderer = new ZebraWorldRenderer(zebraWorld, bombaZebra.getBatch());
 
+		// Les boutons
+		menu = new MenuEcranJeu(zebraWorld);
+
 		// Ajout du mouvement
-		Gdx.input.setInputProcessor(new ZebraWorldInputProcessor(zebraWorld));
+		InputMultiplexer multiplexer = new InputMultiplexer();
+		multiplexer.addProcessor(new ZebraWorldInputProcessor(zebraWorld));
+		multiplexer.addProcessor(menu);
+		Gdx.input.setInputProcessor(multiplexer);
 
 		// Pour le mode debug
 		this.debugRenderer = new Box2DDebugRenderer();
@@ -51,6 +61,10 @@ public class EcranJeu implements Screen {
 		zebraWorldRenderer.setView(camera);
 		zebraWorldRenderer.render();
 
+		// Les boutons
+		menu.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+		menu.draw();
+
 		// Mode debug
 		if (ZebraConstantes.DEBUG_MODE) {
 			debugRenderer.render(zebraWorld.getWorld(), camera.combined);
@@ -66,6 +80,7 @@ public class EcranJeu implements Screen {
 	@Override
 	public void resize(int width, int height) {
 		camera.resize();
+		menu.redimensionner(width, height);
 	}
 
 	@Override

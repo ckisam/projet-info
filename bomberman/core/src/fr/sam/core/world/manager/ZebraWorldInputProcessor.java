@@ -15,6 +15,7 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 
 	private class TouchInfo {
 		int x = 0, y = 0;
+		boolean deplacement;
 
 		public TouchInfo(int x, int y) {
 			super();
@@ -72,15 +73,23 @@ public class ZebraWorldInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		touchInfoMap.remove(pointer);
+		// TouchInfo touchInfo = touchInfoMap.get(pointer);
+		// if (!touchInfo.deplacement) {
+		// this.zebraWorld.getPlateau().getZebraHero().poserBombe();
+		// } else {
+		// this.zebraWorld.getPlateau().getZebraHero().setVitesseX(0);
+		// this.zebraWorld.getPlateau().getZebraHero().setVitesseY(0);
+		// }
 		this.zebraWorld.getPlateau().getZebraHero().setVitesseX(0);
 		this.zebraWorld.getPlateau().getZebraHero().setVitesseY(0);
+		touchInfoMap.remove(pointer);
 		return false;
 	}
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		TouchInfo touchInfo = touchInfoMap.get(pointer);
+		touchInfo.deplacement = true;
 		int xDiff = screenX - touchInfo.x, yDiff = screenY - touchInfo.y;
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
 			if (xDiff < 0) {

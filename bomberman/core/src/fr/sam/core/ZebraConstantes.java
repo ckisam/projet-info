@@ -8,6 +8,8 @@ public class ZebraConstantes {
 	public static int DESKTOP_INIT_HEIGHT = 640;
 	// public static int DESKTOP_INIT_WIDTH = 416;
 	// public static int DESKTOP_INIT_HEIGHT = 288;
+	public static int RIGHT_MENU_SIZE = 150;
+	public static int RIGHT_MENU_MARGIN = 10;
 
 	public static int TILE_SIZE = 32;
 	// public static int ZEBRA_SPEED = TILE_SIZE / 4;

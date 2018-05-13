@@ -6,6 +6,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import fr.sam.core.screen.EcranJeu;
+import fr.sam.core.screen.EcranMenu;
 
 public class BombaZebra extends Game implements ApplicationListener {
 
@@ -17,7 +18,8 @@ public class BombaZebra extends Game implements ApplicationListener {
 		batch = new SpriteBatch();
 		assets = new AssetManager();
 
-		this.setScreen(new EcranJeu(this));
+		this.setScreen(new EcranMenu(this));
+		// this.setScreen(new EcranJeu(this));
 	}
 
 	@Override

@@ -4,8 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 
+import fr.sam.core.ETextureRessource;
 import fr.sam.core.ZebraConstantes;
-import fr.sam.core.world.ETextureRessource;
 import fr.sam.core.world.ZebraSprite;
 
 public class Bombe extends ZebraSprite {

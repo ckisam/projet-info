@@ -1,6 +1,6 @@
 package fr.sam.core.world.cellule;
 
-import fr.sam.core.world.ETextureRessource;
+import fr.sam.core.ETextureRessource;
 
 public class FoyerExplosion extends Explosion {
 
