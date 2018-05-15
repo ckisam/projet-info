@@ -27,6 +27,7 @@ public abstract class ZebraCellule extends ZebraSprite {
 
 	private Bombe bombe;
 	private Explosion explosion;
+	private Bonus bonus;
 	private boolean sortie;
 
 	public ZebraCellule() {
@@ -45,6 +46,9 @@ public abstract class ZebraCellule extends ZebraSprite {
 		}
 		if (explose()) {
 			explosion.render(batch);
+		}
+		if (aBonus()) {
+			bonus.render(batch);
 		}
 	}
 
@@ -103,6 +107,14 @@ public abstract class ZebraCellule extends ZebraSprite {
 
 	public void gererFinExplosion() {
 		this.explosion = null;
+	}
+
+	public void enleverBonus() {
+		this.bonus = null;
+	}
+
+	public boolean aBonus() {
+		return bonus != null;
 	}
 
 	// Getters et setters
@@ -217,6 +229,14 @@ public abstract class ZebraCellule extends ZebraSprite {
 
 	public void setSortie(boolean sortie) {
 		this.sortie = sortie;
+	}
+
+	public Bonus getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(Bonus bonus) {
+		this.bonus = bonus;
 	}
 
 }

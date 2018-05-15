@@ -2,6 +2,8 @@ package fr.sam.core.world.cellule;
 
 import com.badlogic.gdx.graphics.Texture;
 
+import fr.sam.core.world.manager.NumberGenerator;
+
 /**
  * Case 'brique' : destructible par une bombe.
  * 
@@ -39,7 +41,12 @@ public class BriqueCellule extends ZebraCellule {
 		} else {
 			CelluleVide nouvelleCellule = new CelluleVide();
 			this.getPlateau().ajouterCellule(nouvelleCellule, getPosX(), getPosY());
-			// TODO Gerer les bonus :) (enfin !!)
+			int random = NumberGenerator.getInstance().tireEntreMinEtMax(1, 10);
+			if (random == 10) {
+				nouvelleCellule.setBonus(new Bonus(nouvelleCellule, EBonus.VIE));
+			} else if (random < 10 && random > 5) {
+				nouvelleCellule.setBonus(new Bonus(nouvelleCellule, EBonus.FORCE));
+			}
 		}
 	}
 

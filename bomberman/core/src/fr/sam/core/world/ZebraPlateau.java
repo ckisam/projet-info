@@ -1,5 +1,9 @@
 package fr.sam.core.world;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.maps.MapProperties;
 
@@ -8,6 +12,7 @@ import fr.sam.core.world.cellule.BriqueCellule;
 import fr.sam.core.world.cellule.CelluleVide;
 import fr.sam.core.world.cellule.SortieCellule;
 import fr.sam.core.world.cellule.ZebraCellule;
+import fr.sam.core.world.cellule.ZebraMechant;
 import fr.sam.core.world.personnage.ZebraHero;
 
 /**
@@ -21,6 +26,7 @@ public class ZebraPlateau {
 	private ZebraWorld zebraWorld;
 	private final float tileWidth, tileHeight;
 	private ZebraHero zebraHero;
+	private final List<ZebraMechant> mechantList = new ArrayList<ZebraMechant>();
 	private final ZebraCellule[][] celluleTab;
 
 	public ZebraPlateau(ZebraWorld zebraWorld) {
@@ -120,6 +126,12 @@ public class ZebraPlateau {
 		this.zebraHero.updatePosition();
 	}
 
+	public void ajouterMechant(ZebraMechant zebraMechant, int i, int j) {
+		this.mechantList.add(zebraMechant);
+		zebraMechant.setCellule(celluleTab[i][j]);
+		zebraMechant.updatePosition();
+	}
+
 	public void renderPlateau(Batch batch) {
 		batch.begin();
 		for (int i = 0; i < this.celluleTab.length; i++) {
@@ -132,6 +144,14 @@ public class ZebraPlateau {
 		}
 		if (zebraHero != null) {
 			zebraHero.render(batch);
+		}
+		for (Iterator<ZebraMechant> iter = mechantList.iterator(); iter.hasNext();) {
+			ZebraMechant mechant = iter.next();
+			if (mechant.isVivant()) {
+				mechant.render(batch);
+			} else {
+				iter.remove();
+			}
 		}
 		batch.end();
 	}
@@ -152,6 +172,10 @@ public class ZebraPlateau {
 
 	public void setZebraHero(ZebraHero zebraHero) {
 		this.zebraHero = zebraHero;
+	}
+
+	public List<ZebraMechant> getMechantList() {
+		return mechantList;
 	}
 
 	public float getTileWidth() {

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
-import fr.sam.core.world.EEtatJeu;
+import fr.sam.core.ZebraConstantes;
 import fr.sam.core.world.ZebraSprite;
 import fr.sam.core.world.cellule.ZebraCellule;
 
@@ -15,16 +15,17 @@ import fr.sam.core.world.cellule.ZebraCellule;
  * @author Samuel
  *
  */
-public class ZebraPersonnage extends ZebraSprite {
+public abstract class ZebraPersonnage extends ZebraSprite {
 
 	private static final int DELAI_DEPLACEMENT = 100;
-	private static final int DELAI_BLESSURE = 1000;
+	private static final int DELAI_BLESSURE = 500;
 	private static final int NB_STEP = 4;
 
 	private volatile long mouvementNanoTime = System.nanoTime();
 	private volatile long blessureNanoTime = System.nanoTime();
 
 	private int nbVie = 1;
+	private int force = ZebraConstantes.BOMB_DEFAULT_FORCE;
 
 	private ZebraCellule cellule;
 	private int verStep = 0, horStep = 0;
@@ -80,8 +81,9 @@ public class ZebraPersonnage extends ZebraSprite {
 				nbVie -= 1;
 			}
 			if (nbVie <= 0) {
-				getCellule().getPlateau().getZebraWorld().setEtatJeu(EEtatJeu.PERDU);
+				gererMort();
 			}
+			this.blessureNanoTime = System.nanoTime();
 		}
 	}
 
@@ -141,6 +143,8 @@ public class ZebraPersonnage extends ZebraSprite {
 		}
 	}
 
+	public abstract void gererMort();
+
 	// Getters et setters
 
 	public int getNbVie() {
@@ -149,6 +153,14 @@ public class ZebraPersonnage extends ZebraSprite {
 
 	public void setNbVie(int nbVie) {
 		this.nbVie = nbVie;
+	}
+
+	public int getForce() {
+		return force;
+	}
+
+	public void setForce(int force) {
+		this.force = force;
 	}
 
 	public ZebraCellule getCellule() {

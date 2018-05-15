@@ -10,6 +10,7 @@ import fr.sam.core.screen.EZebraLayerType;
 import fr.sam.core.world.ZebraSprite;
 import fr.sam.core.world.ZebraWorld;
 import fr.sam.core.world.cellule.ZebraCellule;
+import fr.sam.core.world.cellule.ZebraMechant;
 import fr.sam.core.world.personnage.ZebraHero;
 
 /**
@@ -84,6 +85,10 @@ public class ZebraWorldMaker {
 							if (zebraSprite instanceof ZebraHero) {
 								ZebraHero hero = (ZebraHero) zebraSprite;
 								zebraWorld.getPlateau().ajouterHero(hero, i, j);
+							}
+							if (zebraSprite instanceof ZebraMechant) {
+								ZebraMechant mechant = (ZebraMechant) zebraSprite;
+								zebraWorld.getPlateau().ajouterMechant(mechant, i, j);
 							}
 						}
 					}

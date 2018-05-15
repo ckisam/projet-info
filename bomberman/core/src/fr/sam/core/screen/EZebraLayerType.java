@@ -8,6 +8,7 @@ import fr.sam.core.world.ZebraSprite;
 import fr.sam.core.world.cellule.BriqueCellule;
 import fr.sam.core.world.cellule.MurCellule;
 import fr.sam.core.world.cellule.SortieCellule;
+import fr.sam.core.world.cellule.ZebraMechant;
 import fr.sam.core.world.personnage.ZebraHero;
 
 /**
@@ -22,7 +23,8 @@ public enum EZebraLayerType {
 	MUR("Murs", "Mur", MurCellule.class), //
 	BRIQUES("Briques", "Brique", BriqueCellule.class), //
 	HERO("Zebra", "Zebra", ZebraHero.class), //
-	SORTIE("Sortie", "Sortie", SortieCellule.class);
+	SORTIE("Sortie", "Sortie", SortieCellule.class), //
+	MECHANT("Mechants", "Mechant", ZebraMechant.class);
 
 	private final String layerName;
 	private final String tileName;

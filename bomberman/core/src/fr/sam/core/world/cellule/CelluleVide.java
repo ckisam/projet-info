@@ -19,6 +19,9 @@ public class CelluleVide extends ZebraCellule {
 		if (explose()) {
 			getExplosion().render(batch);
 		}
+		if (aBonus()) {
+			getBonus().render(batch);
+		}
 	}
 
 	@Override
